@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Your World | A worldbuilding project</title>
+  <meta name="description" content="Discover Your World: its stories, factions, art, and interactive atlas.">
+  <meta name="theme-color" content="#14110d">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="vendor/leaflet.css">
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="vendor/leaflet.js"></script>
+  <script defer src="site.js"></script>
+  <script defer src="map.js"></script>
+</head>
+<body id="top">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="ribbon">A world of stories, waiting to be written</div>
+  <header>
+    <nav class="wrap nav" aria-label="Primary">
+      <a class="brand" href="#top"><span aria-hidden="true">✦</span> YOUR WORLD <small>A WORLDBUILDING PROJECT</small></a>
+      <div class="menu-box">
+        <button id="menu-toggle" class="menu-toggle" aria-expanded="false" aria-controls="nav-links" hidden>Menu <span aria-hidden="true">☰</span></button>
+        <ul id="nav-links" class="nav-links">
+          <li><a href="#world">The world</a></li><li><a href="#factions">Factions</a></li><li><a href="#gallery">Gallery</a></li><li><a href="#world-map">World map</a></li><li><a href="#projects">Projects</a></li><li><a href="#connect">Connect</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+  <main id="main">
+    <!-- Replace the text and SVG placeholders with your own setting and art. -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-bg"><img src="assets/landscape.svg" alt="" width="1200" height="800"></div>
+      <div class="wrap hero-inner"><div class="hero-copy">
+        <p class="eyebrow">A new world begins here</p>
+        <h1 id="hero-title">What if the world had taken a different path?</h1>
+        <p class="lede">Introduce your setting here. A forgotten age, an imagined future, or a history that never was. Set the scene, hint at the conflict, and invite your readers into the world you are building.</p>
+        <div class="actions"><a class="btn primary" href="#world">Discover the world</a><a class="btn" href="#world-map">Explore the map</a></div>
+      </div></div>
+    </section>
+    <section class="section" id="world" aria-labelledby="world-title">
+      <div class="wrap"><div class="divider" aria-hidden="true">✦</div><div class="split">
+        <figure class="portrait"><img src="assets/portrait.svg" alt="Placeholder for a character or scene from your world" loading="lazy" width="1200" height="800"></figure>
+        <div><p class="eyebrow">The premise</p><h2 id="world-title">Every world has a beginning.</h2><blockquote>“Place a defining quote, prophecy, or passage from your world here.”</blockquote><p>Describe the moment that shaped your setting. What changed? Who holds power? What is about to happen?</p><p>Use this space for a brief introduction to the history, themes, and stakes. Give visitors a reason to keep exploring.</p></div>
+      </div></div>
+    </section>
+    <section class="section parchment" id="factions" aria-labelledby="factions-title">
+      <div class="wrap"><div class="section-heading"><div><p class="eyebrow">People &amp; powers</p><h2 id="factions-title">Factions</h2><p>Introduce the cultures, houses, or movements that shape your world.</p></div><div class="carousel-controls" hidden><button type="button" data-slide="-1" aria-label="Previous factions">←</button><button type="button" data-slide="1" aria-label="Next factions">→</button></div></div>
+        <div class="faction-track" tabindex="0" aria-label="Faction cards; scroll horizontally">
+          <article class="faction-card"><img src="assets/faction-1.svg" alt="Faction one artwork placeholder" loading="lazy" width="1200" height="800"><div><p class="eyebrow">01 / A people</p><h3>Faction name</h3><p>Describe their homeland, beliefs, and place in the world. What do they want, and what stands in their way?</p></div></article>
+          <article class="faction-card"><img src="assets/faction-2.svg" alt="Faction two artwork placeholder" loading="lazy" width="1200" height="800"><div><p class="eyebrow">02 / A power</p><h3>Faction name</h3><p>Introduce a rival realm or an uneasy ally. Give readers a glimpse of its customs and ambitions.</p></div></article>
+          <article class="faction-card"><img src="assets/faction-3.svg" alt="Faction three artwork placeholder" loading="lazy" width="1200" height="800"><div><p class="eyebrow">03 / A movement</p><h3>Faction name</h3><p>Who challenges the established order? Share the ideals that hold this group together.</p></div></article>
+          <article class="faction-card"><img src="assets/faction-4.svg" alt="Faction four artwork placeholder" loading="lazy" width="1200" height="800"><div><p class="eyebrow">04 / A mystery</p><h3>Faction name</h3><p>Introduce a distant culture, a forgotten order, or a people whose story has yet to unfold.</p></div></article>
+        </div>
+      </div>
+    </section>
+    <section class="section" id="gallery" aria-labelledby="gallery-title">
+      <div class="wrap"><p class="eyebrow">A glimpse inside</p><h2 id="gallery-title">Art &amp; stories</h2><p>Make room for your landscapes, characters, and concepts.</p>
+        <div class="gallery-grid">
+          <figure><a href="assets/landscape.svg" data-gallery><img src="assets/landscape.svg" alt="Landscape artwork placeholder" loading="lazy" width="1200" height="800"></a><figcaption>Landscape / Your caption here</figcaption></figure>
+          <figure><a href="assets/portrait.svg" data-gallery><img src="assets/portrait.svg" alt="Character artwork placeholder" loading="lazy" width="1200" height="800"></a><figcaption>Character / Your caption here</figcaption></figure>
+          <figure><a href="assets/faction-2.svg" data-gallery><img src="assets/faction-2.svg" alt="Concept artwork placeholder" loading="lazy" width="1200" height="800"></a><figcaption>Concept / Your caption here</figcaption></figure>
+        </div>
+      </div>
+    </section>
+    <section class="section parchment" id="world-map" aria-labelledby="map-title">
+      <div class="wrap"><p class="eyebrow">The atlas</p><h2 id="map-title">A world waiting to be charted.</h2><p>An unclaimed Earth. Add your own borders, settlements, and stories.</p>
+        <div class="map-toolbar"><button type="button" id="map-reset" disabled>Reset view</button><label><input type="checkbox" id="map-examples" disabled> Show example realm &amp; settlement</label><span>Drag to explore · Use + / − to zoom</span></div>
+        <p id="map-status" role="status">Loading the atlas…</p>
+        <noscript><p>Enable JavaScript to explore the interactive atlas.</p></noscript>
+        <div id="map" role="region" aria-label="Interactive world atlas"></div>
+        <div class="map-index"><h3>Locations &amp; territories</h3><p id="map-empty">No locations or territories have been added yet.</p><ul id="map-locations"></ul></div>
+      </div>
+    </section>
+    <section class="section" id="projects" aria-labelledby="projects-title">
+      <div class="wrap"><p class="eyebrow">Beyond the map</p><h2 id="projects-title">Stories from this world</h2><div class="project-grid">
+        <article><span class="eyebrow">01 / Read</span><h3>Your stories</h3><p>Introduce your fiction, lore articles, or campaign journals. Add links when they are ready to share.</p></article>
+        <article><span class="eyebrow">02 / Watch</span><h3>Your project</h3><p>A place for a film, game, development diary, or trailer set in your world.</p></article>
+        <article><span class="eyebrow">03 / Discover</span><h3>Your wiki</h3><p>Point readers toward the deeper history, characters, and details of your setting.</p></article>
+      </div></div>
+    </section>
+    <section class="section parchment" id="connect" aria-labelledby="connect-title"><div class="wrap connect"><p class="eyebrow">Keep the story going</p><h2 id="connect-title">Build something worth exploring.</h2><p>Introduce yourself or your team. Tell visitors how they can follow your work, contribute to the world, or join your community.</p><p class="muted">Your community links and contact details go here.</p></div></section>
+  </main>
+  <footer><div class="wrap"><a class="footer-brand" href="#top">✦ YOUR WORLD</a><p>A worldbuilding website template by Vincent De Nil.</p><p><a href="LICENSE">MIT license</a> · <a href="https://github.com/VincentDN/worldbuilding-website-template">Get the template</a></p></div></footer>
+  <dialog id="lightbox" aria-label="Artwork viewer"><button type="button" id="lightbox-close" aria-label="Close artwork viewer">Close ×</button><img id="lightbox-image" alt=""><p id="lightbox-caption"></p></dialog>
+</body>
+</html>

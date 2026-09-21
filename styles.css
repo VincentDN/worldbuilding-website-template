@@ -1,0 +1,447 @@
+/* Adapted from the American Kingdoms site's warm ink / parchment design. */
+:root{
+  --ink:#14110d;
+  --ink-2:#1d1813;
+  --parch:#ece0c8;
+  --parch-ink:#2c2118;
+  --cream:#f5f1dc;
+  --muted:#c7bca2;
+  --crimson:#b31f34;
+  --gold:#c8a24a;
+  --rule:rgba(200,162,74,.42);
+  --wrap:1180px;
+  --pad:clamp(1.25rem,5vw,4rem);
+  --section:clamp(4rem,8vw,7rem);
+  --body:Georgia,'Times New Roman',serif;
+  --sans:'Trebuchet MS',Arial,sans-serif}
+  *{
+    box-sizing:border-box}
+    body{
+      margin:0;
+      background:var(--ink);
+      color:var(--cream);
+      font:1.1rem/1.75 var(--body)}
+      img{
+        display:block;
+        max-width:100%;
+        height:auto}
+        button,input{
+          font:inherit}
+          button,a,input{
+            touch-action:manipulation}
+            button{
+              cursor:pointer}
+              a{
+                color:inherit;
+                text-underline-offset:4px}
+                a:hover{
+                  color:var(--gold)}
+                  button:focus-visible,a:focus-visible,input:focus-visible,[tabindex]:focus-visible{
+                    outline:3px solid var(--gold);
+                    outline-offset:5px}
+                    h1,h2,h3{
+                      font-family:var(--sans);
+                      line-height:1.15;
+                      margin:0 0 1.3rem;
+                      text-wrap:balance}
+                      h1{
+                        font-size:clamp(2.3rem,4vw,3.5rem)}
+                        h2{
+                          font-size:clamp(2rem,3.5vw,3rem)}
+                          h3{
+                            font-size:1.4rem}
+                            p{
+                              margin:0 0 1.3rem}
+                              figure{
+                                margin:0}
+                                .wrap{
+                                  width:min(100% - 2*var(--pad),var(--wrap));
+                                  margin-inline:auto}
+                                  .section{
+                                    padding-block:var(--section);
+                                    border-top:1px solid var(--rule)}
+                                    .eyebrow{
+                                      font:700 .7rem/1.5 var(--sans);
+                                      text-transform:uppercase;
+                                      letter-spacing:.18em;
+                                      color:var(--gold);
+                                      margin-bottom:1.1rem}
+                                      .parchment{
+                                        background:radial-gradient(ellipse at top left,#f7eedc,transparent 70%),var(--parch);
+                                        color:var(--parch-ink)}
+                                        .parchment .eyebrow{
+                                          color:#8f1526}
+                                          .muted{
+                                            color:#5a4a38}
+                                            .ribbon{
+                                              background:var(--crimson);
+                                              text-align:center;
+                                              font:700 .65rem/1.5 var(--sans);
+                                              letter-spacing:.14em;
+                                              text-transform:uppercase;
+                                              padding:.6rem 1rem}
+                                              header{
+                                                padding:2rem 0;
+                                                border-bottom:1px solid var(--rule);
+                                                background:radial-gradient(ellipse at top,#30251b,var(--ink))}
+                                                .nav{
+                                                  display:flex;
+                                                  flex-direction:column;
+                                                  align-items:center;
+                                                  gap:1.6rem}
+                                                  .brand{
+                                                    text-decoration:none;
+                                                    text-align:center;
+                                                    font:2.4rem/1.2 var(--body);
+                                                    letter-spacing:.1em}
+                                                    .brand>span{
+                                                      display:block;
+                                                      font-size:2rem;
+                                                      color:var(--gold);
+                                                      margin-bottom:.4rem}
+                                                      .brand small{
+                                                        display:block;
+                                                        font:600 .58rem/2 var(--sans);
+                                                        letter-spacing:.3em;
+                                                        margin-top:.8rem}
+                                                        .menu-box{
+                                                          width:min(100%,960px);
+                                                          padding:.75rem 1.3rem;
+                                                          background:#4e3d36;
+                                                          border:1px solid #776356}
+                                                          .nav-links{
+                                                            display:flex;
+                                                            flex-wrap:wrap;
+                                                            justify-content:center;
+                                                            gap:.5rem 0;
+                                                            list-style:none;
+                                                            padding:0;
+                                                            margin:0}
+                                                            .nav-links li+li:before{
+                                                              content:'|';
+                                                              margin:0 1.2rem;
+                                                              color:#b7a998}
+                                                              .nav-links a{
+                                                                text-decoration:none;
+                                                                font:600 .9rem var(--sans)}
+                                                                .menu-toggle{
+                                                                  border:0;
+                                                                  background:none;
+                                                                  color:var(--cream);
+                                                                  padding:.5rem;
+                                                                  width:100%}
+                                                                  .menu-toggle span{
+                                                                    margin-left:1rem}
+                                                                    .hero{
+                                                                      position:relative;
+                                                                      isolation:isolate;
+                                                                      background:#3a2d24}
+                                                                      .hero-bg{
+                                                                        position:absolute;
+                                                                        inset:0;
+                                                                        z-index:-2}
+                                                                        .hero-bg img{
+                                                                          width:100%;
+                                                                          height:100%;
+                                                                          object-fit:cover}
+                                                                          .hero:after{
+                                                                            content:'';
+                                                                            position:absolute;
+                                                                            inset:0;
+                                                                            background:linear-gradient(90deg,#14110d05,#30251bdb 62%,#30251bf5);
+                                                                            z-index:-1}
+                                                                            .hero-inner{
+                                                                              display:grid;
+                                                                              grid-template-columns:1fr 1fr;
+                                                                              min-height:620px;
+                                                                              align-items:center;
+                                                                              padding-block:5rem}
+                                                                              .hero-copy{
+                                                                                grid-column:2;
+                                                                                padding-left:2rem}
+                                                                                .lede{
+                                                                                  max-width:48ch}
+                                                                                  .actions{
+                                                                                    display:flex;
+                                                                                    flex-wrap:wrap;
+                                                                                    gap:1rem;
+                                                                                    margin-top:2rem}
+                                                                                    .btn{
+                                                                                      display:inline-block;
+                                                                                      border:1px solid var(--gold);
+                                                                                      padding:.85rem 1.2rem;
+                                                                                      text-decoration:none;
+                                                                                      font:700 .8rem/1.4 var(--sans)}
+                                                                                      .primary{
+                                                                                        background:var(--crimson);
+                                                                                        border-color:var(--crimson);
+                                                                                        color:var(--cream)}
+                                                                                        .btn:hover{
+                                                                                          background:var(--ink);
+                                                                                          color:var(--cream)}
+                                                                                          .divider{
+                                                                                            text-align:center;
+                                                                                            color:var(--gold);
+                                                                                            margin-bottom:4rem}
+                                                                                            .split{
+                                                                                              display:grid;
+                                                                                              grid-template-columns:.85fr 1.15fr;
+                                                                                              gap:4rem;
+                                                                                              align-items:center}
+                                                                                              .portrait{
+                                                                                                padding:10px;
+                                                                                                border:1px solid var(--rule)}
+                                                                                                .portrait img{
+                                                                                                  aspect-ratio:4/5;
+                                                                                                  object-fit:cover}
+                                                                                                  blockquote{
+                                                                                                    border-left:2px solid var(--gold);
+                                                                                                    padding-left:1.4rem;
+                                                                                                    color:var(--gold);
+                                                                                                    margin:1.8rem 0;
+                                                                                                    font-size:1.3rem;
+                                                                                                    font-style:italic}
+                                                                                                    .section-heading{
+                                                                                                      display:flex;
+                                                                                                      justify-content:space-between;
+                                                                                                      gap:1rem;
+                                                                                                      align-items:end}
+                                                                                                      .section-heading p{
+                                                                                                        max-width:60ch}
+                                                                                                        .carousel-controls{
+                                                                                                          display:flex;
+                                                                                                          gap:.5rem;
+                                                                                                          margin-bottom:1.3rem}
+                                                                                                          .carousel-controls button{
+                                                                                                            width:44px;
+                                                                                                            height:44px;
+                                                                                                            background:transparent;
+                                                                                                            border:1px solid var(--crimson);
+                                                                                                            color:var(--crimson)}
+                                                                                                            .faction-track{
+                                                                                                              display:grid;
+                                                                                                              grid-auto-flow:column;
+                                                                                                              grid-auto-columns:320px;
+                                                                                                              gap:1.5rem;
+                                                                                                              overflow-x:auto;
+                                                                                                              scroll-snap-type:x mandatory;
+                                                                                                              scrollbar-color:var(--crimson) transparent;
+                                                                                                              padding-bottom:1rem;
+                                                                                                              margin-top:2rem}
+                                                                                                              .faction-card{
+                                                                                                                scroll-snap-align:start;
+                                                                                                                background:#eee2ca;
+                                                                                                                border:1px solid #5a4a3847}
+                                                                                                                .faction-card img{
+                                                                                                                  aspect-ratio:1;
+                                                                                                                  object-fit:cover}
+                                                                                                                  .faction-card>div{
+                                                                                                                    padding:1.5rem}
+                                                                                                                    .faction-card p:last-child{
+                                                                                                                      font-size:1rem;
+                                                                                                                      color:#5a4a38;
+                                                                                                                      margin:0}
+                                                                                                                      .gallery-grid{
+                                                                                                                        display:grid;
+                                                                                                                        grid-template-columns:2fr 1fr;
+                                                                                                                        gap:1.4rem;
+                                                                                                                        margin-top:2.5rem}
+                                                                                                                        .gallery-grid figure:first-child{
+                                                                                                                          grid-row:span 2}
+                                                                                                                          .gallery-grid img{
+                                                                                                                            width:100%;
+                                                                                                                            aspect-ratio:16/9;
+                                                                                                                            object-fit:cover;
+                                                                                                                            border:1px solid var(--rule)}
+                                                                                                                            .gallery-grid figure:first-child img{
+                                                                                                                              aspect-ratio:1.05}
+                                                                                                                              .gallery-grid a{
+                                                                                                                                display:block;
+                                                                                                                                cursor:zoom-in}
+                                                                                                                                figcaption{
+                                                                                                                                  font: .75rem/1.5 var(--sans);
+                                                                                                                                  color:var(--muted);
+                                                                                                                                  margin-top:.8rem}
+                                                                                                                                  .map-toolbar{
+                                                                                                                                    display:flex;
+                                                                                                                                    flex-wrap:wrap;
+                                                                                                                                    gap:1rem;
+                                                                                                                                    align-items:center;
+                                                                                                                                    font:.8rem/1.5 var(--sans);
+                                                                                                                                    margin:2rem 0 1rem}
+                                                                                                                                    .map-toolbar button{
+                                                                                                                                      background:var(--ink);
+                                                                                                                                      color:var(--cream);
+                                                                                                                                      border:1px solid var(--ink);
+                                                                                                                                      padding:.6rem 1rem}
+                                                                                                                                      .map-toolbar input{
+                                                                                                                                        accent-color:var(--crimson);
+                                                                                                                                        width:18px;
+                                                                                                                                        height:18px;
+                                                                                                                                        vertical-align:middle}
+                                                                                                                                        .map-toolbar span{
+                                                                                                                                          margin-left:auto;
+                                                                                                                                          color:#5a4a38}
+                                                                                                                                          #map{
+                                                                                                                                            height:clamp(350px,60vw,610px);
+                                                                                                                                            background:#c9d7d7;
+                                                                                                                                            border:1px solid #7e8272;
+                                                                                                                                            z-index:0}
+                                                                                                                                            #map-status{
+                                                                                                                                              font:.85rem/1.5 var(--sans)}
+                                                                                                                                              .map-index{
+                                                                                                                                                padding-top:1.5rem}
+                                                                                                                                                .map-index h3{
+                                                                                                                                                  font-size:1rem}
+                                                                                                                                                  .map-index p{
+                                                                                                                                                    font-size:.9rem}
+                                                                                                                                                    #map-locations{
+                                                                                                                                                      list-style:none;
+                                                                                                                                                      display:flex;
+                                                                                                                                                      flex-wrap:wrap;
+                                                                                                                                                      gap:.75rem;
+                                                                                                                                                      padding:0}
+                                                                                                                                                      #map-locations button{
+                                                                                                                                                        background:transparent;
+                                                                                                                                                        border:1px solid #74634c;
+                                                                                                                                                        padding:.5rem .8rem;
+                                                                                                                                                        color:var(--parch-ink)}
+                                                                                                                                                        .leaflet-container{
+                                                                                                                                                          font-family:var(--sans)}
+                                                                                                                                                          .leaflet-popup-content{
+                                                                                                                                                            line-height:1.6}
+                                                                                                                                                            .leaflet-popup-content h3{
+                                                                                                                                                              font-size:1rem;
+                                                                                                                                                              margin-bottom:.5rem}
+                                                                                                                                                              .leaflet-popup-content p{
+                                                                                                                                                                margin:0}
+                                                                                                                                                                .project-grid{
+                                                                                                                                                                  display:grid;
+                                                                                                                                                                  grid-template-columns:repeat(3,1fr);
+                                                                                                                                                                  gap:2rem;
+                                                                                                                                                                  margin-top:3rem}
+                                                                                                                                                                  .project-grid article{
+                                                                                                                                                                    padding:2rem;
+                                                                                                                                                                    border:1px solid var(--rule);
+                                                                                                                                                                    background:var(--ink-2)}
+                                                                                                                                                                    .project-grid h3{
+                                                                                                                                                                      margin-top:1rem}
+                                                                                                                                                                      .project-grid p{
+                                                                                                                                                                        font-size:1rem;
+                                                                                                                                                                        color:var(--muted);
+                                                                                                                                                                        margin:0}
+                                                                                                                                                                        .connect{
+                                                                                                                                                                          max-width:700px;
+                                                                                                                                                                          text-align:center}
+                                                                                                                                                                          footer{
+                                                                                                                                                                            padding:3rem 0;
+                                                                                                                                                                            text-align:center;
+                                                                                                                                                                            font:.85rem/1.8 var(--sans)}
+                                                                                                                                                                            footer p{
+                                                                                                                                                                              margin:.8rem 0}
+                                                                                                                                                                              .footer-brand{
+                                                                                                                                                                                font:1.2rem var(--body);
+                                                                                                                                                                                letter-spacing:.15em;
+                                                                                                                                                                                text-decoration:none;
+                                                                                                                                                                                color:var(--gold)}
+                                                                                                                                                                                .skip-link{
+                                                                                                                                                                                  position:absolute;
+                                                                                                                                                                                  left:1rem;
+                                                                                                                                                                                  top:-100px;
+                                                                                                                                                                                  z-index:10000;
+                                                                                                                                                                                  background:var(--cream);
+                                                                                                                                                                                  color:var(--ink);
+                                                                                                                                                                                  padding:1rem}
+                                                                                                                                                                                  .skip-link:focus{
+                                                                                                                                                                                    top:1rem}
+                                                                                                                                                                                    dialog{
+                                                                                                                                                                                      background:var(--ink);
+                                                                                                                                                                                      color:var(--cream);
+                                                                                                                                                                                      border:1px solid var(--gold);
+                                                                                                                                                                                      max-width:min(95vw,1100px);
+                                                                                                                                                                                      max-height:95vh;
+                                                                                                                                                                                      padding:1rem}
+                                                                                                                                                                                      dialog::backdrop{
+                                                                                                                                                                                        background:#000d}
+                                                                                                                                                                                        dialog img{
+                                                                                                                                                                                          max-height:72vh;
+                                                                                                                                                                                          margin:auto}
+                                                                                                                                                                                          dialog button{
+                                                                                                                                                                                            display:block;
+                                                                                                                                                                                            margin:0 0 1rem auto;
+                                                                                                                                                                                            padding:.5rem 1rem;
+                                                                                                                                                                                            background:var(--cream);
+                                                                                                                                                                                            color:var(--ink);
+                                                                                                                                                                                            border:0}
+                                                                                                                                                                                            dialog p{
+                                                                                                                                                                                              margin:1rem 0 0;
+                                                                                                                                                                                              font-size:.9rem}
+                                                                                                                                                                                              [hidden]{
+                                                                                                                                                                                                display:none!important}
+                                                                                                                                                                                                @media(min-width:721px){
+                                                                                                                                                                                                  .menu-toggle{
+                                                                                                                                                                                                    display:none}
+                                                                                                                                                                                                    .nav-links{
+                                                                                                                                                                                                      display:flex!important}
+                                                                                                                                                                                                    }
+                                                                                                                                                                                                    @media(max-width:900px){
+                                                                                                                                                                                                      .split{
+                                                                                                                                                                                                        gap:2rem}
+                                                                                                                                                                                                        .project-grid{
+                                                                                                                                                                                                          grid-template-columns:1fr}
+                                                                                                                                                                                                          .project-grid article{
+                                                                                                                                                                                                            padding:1.5rem}
+                                                                                                                                                                                                            .hero-copy{
+                                                                                                                                                                                                              padding-left:1rem}
+                                                                                                                                                                                                            }
+                                                                                                                                                                                                            @media(max-width:720px){
+                                                                                                                                                                                                              .brand{
+                                                                                                                                                                                                                font-size:2rem}
+                                                                                                                                                                                                                .nav-links{
+                                                                                                                                                                                                                  flex-direction:column;
+                                                                                                                                                                                                                  text-align:center}
+                                                                                                                                                                                                                  .nav-links li+li:before{
+                                                                                                                                                                                                                    display:none}
+                                                                                                                                                                                                                    .nav-links a{
+                                                                                                                                                                                                                      display:block;
+                                                                                                                                                                                                                      padding:.8rem}
+                                                                                                                                                                                                                      .hero-bg{
+                                                                                                                                                                                                                        position:relative}
+                                                                                                                                                                                                                        .hero-bg img{
+                                                                                                                                                                                                                          height:260px;
+                                                                                                                                                                                                                          object-fit:cover}
+                                                                                                                                                                                                                          .hero:after{
+                                                                                                                                                                                                                            display:none}
+                                                                                                                                                                                                                            .hero-inner{
+                                                                                                                                                                                                                              display:block;
+                                                                                                                                                                                                                              min-height:0;
+                                                                                                                                                                                                                              padding-block:2.5rem}
+                                                                                                                                                                                                                              .hero-copy{
+                                                                                                                                                                                                                                padding:0}
+                                                                                                                                                                                                                                .split{
+                                                                                                                                                                                                                                  grid-template-columns:1fr}
+                                                                                                                                                                                                                                  .portrait{
+                                                                                                                                                                                                                                    max-width:420px;
+                                                                                                                                                                                                                                    margin:auto}
+                                                                                                                                                                                                                                    .gallery-grid{
+                                                                                                                                                                                                                                      grid-template-columns:1fr}
+                                                                                                                                                                                                                                      .gallery-grid figure:first-child{
+                                                                                                                                                                                                                                        grid-row:auto}
+                                                                                                                                                                                                                                        .gallery-grid figure:first-child img{
+                                                                                                                                                                                                                                          aspect-ratio:16/9}
+                                                                                                                                                                                                                                          .section-heading{
+                                                                                                                                                                                                                                            align-items:start}
+                                                                                                                                                                                                                                            .carousel-controls{
+                                                                                                                                                                                                                                              margin-top:2rem}
+                                                                                                                                                                                                                                              .map-toolbar span{
+                                                                                                                                                                                                                                                margin-left:0}
+                                                                                                                                                                                                                                                .map-toolbar{
+                                                                                                                                                                                                                                                  gap:.75rem}
+                                                                                                                                                                                                                                                  .map-toolbar label{
+                                                                                                                                                                                                                                                    display:flex;
+                                                                                                                                                                                                                                                    align-items:center;
+                                                                                                                                                                                                                                                    gap:.5rem}
+                                                                                                                                                                                                                                                    .faction-track{
+                                                                                                                                                                                                                                                      grid-auto-columns:85%;
+                                                                                                                                                                                                                                                      gap:1rem}
+                                                                                                                                                                                                                                                    }

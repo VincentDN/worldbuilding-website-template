@@ -1,0 +1,19 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Example settlement",
+        "description": "Replace this demonstration point with your own location."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -2,
+          50
+        ]
+      }
+    }
+  ]
+}
