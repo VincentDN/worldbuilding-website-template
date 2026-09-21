@@ -1,81 +1,86 @@
 # Worldbuilding website template
 
-A static, one-page home for a fictional world, adapted from [American Kingdoms](https://american-kingdoms.com/) by Vincent De Nil. Includes a project introduction, faction carousel, gallery with an accessible image viewer, project cards, community section, and an embedded Leaflet world atlas.
+A static worldbuilding site by Vincent De Nil, based on American Kingdoms. Includes a complete project homepage and a dedicated Leaflet atlas with two illustrative settings and a blank starter.
 
-**MIT licensed. No build step, account, API key, or package installation required.** All runtime assets are included locally, including Leaflet and the map's geography. The default page makes no requests to third-party services.
+[Live demo](https://vincentdn.github.io/worldbuilding-website-template/) · [Europe 1936](https://vincentdn.github.io/worldbuilding-website-template/world-map/?map=europe) · [North America 1477](https://vincentdn.github.io/worldbuilding-website-template/world-map/?map=north-america)
 
-[View the live demo](https://vincentdn.github.io/worldbuilding-website-template/)
+**Template code is MIT. Example artwork and setting content retain their respective rights; see [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).** No build step, map API key, account, or package installation is required.
 
-## Start locally
+## Run locally
 
-1. Use this repository as a template, fork it, or download a ZIP.
-2. Serve the repository folder with any static HTTP server. For example, with Python installed:
+Serve the repository root with a static HTTP server, for example `python -m http.server 8000`, then open `http://localhost:8000`. Do not open the HTML as a `file://` URL: the atlas fetches local JSON data.
 
-   ```sh
-   python -m http.server 8000
-   ```
+## Homepage features
 
-3. Open `http://localhost:8000`.
+- Responsive masthead and mobile navigation; cinematic artwork hero and lore introduction.
+- Faction cards and featured wiki articles.
+- Expandable gallery with keyboard/swipe lightbox, previous/next controls, and full-size artwork.
+- Click-to-play project trailer and video carousel. YouTube is contacted only after activation.
+- Two atlas preview cards linking to dedicated subpages.
+- Merchandise and flag sections with image swaps and example shop links.
+- Supporter artwork carousel, about section, team carousel, and discovery cards.
+- Community/social links and local-only newsletter demonstration, including a dismissible timed invitation and footer trigger.
+- Canonical/Open Graph metadata and JSON-LD for WebSite, WebPage, SoftwareSourceCode, and creator Vincent De Nil. Footer links include Vincent De Nil, The Divided States, and Flagmaker & Print.
 
-Use an HTTP server rather than opening `index.html` directly: browsers restrict loading the atlas's GeoJSON over `file://`.
+American Kingdoms copy is replaced with explicit placeholder/example descriptions. Images, video titles, people, faction names, and outbound destinations remain identifiable as examples. The signup forms validate locally; they never transmit or store email addresses. Connect your own newsletter backend before accepting real subscriptions. No analytics or source-site subscription backend is included.
 
-## Make it yours
+## Atlas features
 
-| File | What to change |
+| Feature | How it works |
 | --- | --- |
-| `index.html` | Project name, page title and description, navigation, premise, faction cards, gallery, projects, contact details, and footer |
-| `styles.css` | Colors and spacing in `:root`, typography, and layout |
-| `assets/` | Replace the original SVG placeholders with your own art and favicon; update paths, dimensions, and alt text in the HTML |
-| `data/territories.geojson` | Your fictional borders; empty by default |
-| `data/places.geojson` | Your settlements and points of interest; empty by default |
-| `map.js` | Initial map bounds, colors, zoom limits, and map behavior |
+| Dedicated atlas | `world-map/`, with scenario selection and a homepage link |
+| Examples | Europe 1936, North America 1477, and an empty Earth starter |
+| Map modes | Realms/alliance colors and individual culture/reference colors |
+| Layers | Established realms, provisional regions, heraldic labels, cities, rivers, and the Europe reference image |
+| Discovery | Search, accessible realm picker, clickable territories, hover previews, flags, descriptions, contributor, culture/alliance, wiki and optional shop links |
+| Navigation | Reset, zoom/pan, county drill-down, subregion filtering, and return-state restoration |
+| Mobile | Automatic lightweight data, canvas rendering, bounded bottom sheet, collision-limited labels; full/light override |
+| Music | Optional original ambient loop, volume/play/pause, best-effort session continuity; first visits stay silent |
+| Editor | Draw polygons, edit vertices, delete territories, edit metadata, import and export GeoJSON; unsaved-change warning |
 
-Duplicate an `<article class="faction-card">` to add a faction. Duplicate a gallery `<figure>` to add artwork. Its link points to the full-size image; its `<img>` can point to a smaller preview. Gallery captions and image descriptions are reused in the viewer. Navigation, content, and gallery links remain usable without JavaScript; the atlas requires it.
+Open `world-map/?map=blank&edit=1` to start drawing. `?detail=full` and `?detail=lite` override automatic detail selection; editing always uses full data. On light maps, cities and river overlays are omitted to reduce loading/rendering work.
 
-The placeholder copy intentionally includes no live signup form, shop, social accounts, video embeds, or wiki links. Replace the copy and add your own working links when those destinations exist. No American Kingdoms artwork, lore, music, branding, subscription backend, or analytics configuration is included.
+### Example fidelity
 
-## Add to the atlas
+**Europe 1936:** selectable outlines were traced from the supplied “Worldbuilding Map Base - Europe Kaiserreich & 1914” image. It is an illustrative scenario, not a verified canonical 1936 map. Flags are original generic placeholders; alliances, city positions, and river guides are examples. Rivers and colors embedded in the reference image remain visible when overlay layers are hidden; turn off **Reference image** to inspect only the editable layers.
 
-The atlas uses a local Natural Earth land layer with a standard Leaflet geographic map. Pan by dragging, zoom with the controls, and return with **Reset view**. Scroll-wheel zoom is disabled so the map does not interrupt page scrolling. The location list below the map provides keyboard-accessible alternatives to clicking features.
+**North America 1477:** uses the American Kingdoms source atlas's geography and example lore. Its source currently depicts 1377; the requested 1477 demo changes the displayed date rather than inventing a century of history. Modern cities and provisional boundaries remain geographic references. Massachusetts opens a separate map of fourteen modern Census counties with fictional titles and heraldry. Only that county dataset is fetched on its subpage.
 
-The two author-owned data files start as empty GeoJSON FeatureCollections. Toggle **Show example realm & settlement** to preview the separate example files; this does not change or save your data. Copy features from those examples into your own files and edit them, or export your own GeoJSON from a map editor.
+## Customize
 
-```json
-{
-  "type": "FeatureCollection",
-  "features": [
-    {
-      "type": "Feature",
-      "properties": {
-        "name": "Your settlement",
-        "description": "Its story begins here."
-      },
-      "geometry": { "type": "Point", "coordinates": [-2, 50] }
-    }
-  ]
-}
-```
+| File or folder | Purpose |
+| --- | --- |
+| `index.html` | Homepage copy, images, links, video embeds, page metadata, JSON-LD |
+| `styles.css`, `site.js` | Homepage layout and interactions |
+| `examples/american-kingdoms/assets/` | Replaceable source-site example artwork and media thumbnails |
+| `assets/` | Original MIT SVG placeholders from the blank starter |
+| `world-map/config.js` | Scenario names, dates, data locations, projections, bounds, alliance palettes, submap links |
+| `world-map/atlas.js`, `atlas.css` | Shared atlas and editor behavior/style |
+| `world-map/data/blank/` | Empty fictional territory/city layers and Natural Earth land |
+| `world-map/data/europe/` | Traced image-space territories and example city/river overlays |
+| `world-map/data/north-america/` | American Kingdoms full geography and lightweight bundle |
+| `world-map/data/massachusetts/` | County example |
+| `world-map/assets/` | Reference art, flags, preview, and original ambient audio |
+| `world-map/music.js` | Audio source and session continuity |
 
-GeoJSON coordinates are **[longitude, latitude]** in WGS84, not pixel coordinates. Territory features use `Polygon` or `MultiPolygon` geometry and may have a six-digit hex `color` property, such as `"#b31f34"`. Close each polygon ring by repeating its first coordinate at the end. Names and descriptions are displayed as plain text, not interpreted as HTML.
+To add a scenario, add an entry in `config.js`, supply its datasets, and add it to the scenario selector in `world-map/index.html` and the county page. Duplicate a homepage atlas card for its entry point. All assets use relative paths and work beneath a GitHub Pages repository URL. County HTML uses `<base href="../">` so shared assets resolve from `world-map/`.
 
-The example option and its loading block in `map.js` can be removed together; also remove `examplesToggle` and simplify `updateIndex()` to include every entry. This starter is a viewer, not a browser-based map editor; edit the data files to save changes.
+### Data and editing
 
-For a completely invented geography, replace `data/land.geojson` with your own geographic GeoJSON. A hand-drawn image map needs a separate Leaflet `L.CRS.Simple` / `L.imageOverlay` setup and pixel-based coordinates; it is not a drop-in replacement for this geographic atlas.
+Each dataset is a GeoJSON FeatureCollection. Full scenarios load `land`, `lakes`, `rivers`, `territories`, and `cities` `.geojson` files. Lightweight scenarios load `lite.json`, containing `land`, `lakes`, and `territories` FeatureCollections. Update both full and light data when publishing edits. The North America light bundle is simplified source geometry; the smaller Europe/blank/county bundles use their corresponding geometry without the city/river layers.
 
-## Publish
+Territory properties: `id`, `name`, `kind` (`country` or `region`), `canon` (established versus provisional), `color` (hex), `summary`, `culture`, `alliance`, `claim` (contributor), `wiki`, `flag`, `shield`, `flagShopUrl`, `label`, `labelMinZoom`, optional `submap` and `region`. Optional links only appear when configured; no shop URL is fabricated. Text is inserted as plain text and external links are restricted to HTTPS.
 
-Upload the repository contents to any static host; the publish directory is the repository root and there is no build command. All local asset and data URLs are relative, so the template also works in a subdirectory.
+**Coordinate systems differ:** Earth/North America/county coordinates are WGS84 `[longitude, latitude]`. Europe uses Leaflet `L.CRS.Simple` image coordinates `[x, y]` on a 1600 × 1548 canvas, with the origin at bottom-left. Image-space files are not geographic GeoJSON. Exports include `coordinateSystem` and `scenario` metadata; imports reject an explicit coordinate-system mismatch. Keep rings closed and use Polygon/MultiPolygon geometry. Import appends territories and assigns fresh IDs where needed; it does not erase existing data.
 
-This repository's demo is published with GitHub Pages from `main` at `/ (root)`. Updates pushed to `main` deploy automatically. The `.nojekyll` file tells Pages to serve the static files directly.
+The editor changes the current tab, not the repository. Export before leaving, review the download, replace the scenario's data, regenerate its light bundle, and commit it to publish. There is no server-side save endpoint.
 
-For your own copy: in **Settings → Pages**, choose **Deploy from a branch**, select `main`, and select `/ (root)`. The expected project URL is `https://YOUR-USERNAME.github.io/YOUR-REPOSITORY/`. Enable Pages separately for each new repository; hosting settings are not copied with the template.
+## Deploy
 
-Before sharing, replace the placeholder content, check your links, set the page description, and add your own canonical and social-preview metadata once your public domain is known.
+GitHub Pages publishes this repository from `main`, `/ (root)`. Updates pushed to `main` deploy automatically. `.nojekyll` serves the static files directly.
 
-## Licensing and provenance
+For your own copy, enable **Settings → Pages → Deploy from a branch → main → / (root)**. Hosting settings are not copied with template files. Replace the canonical URL, social image URLs, JSON-LD IDs, example links, and visible project content before publishing your own world.
 
-- Template code and included original SVG placeholders: [MIT](LICENSE), copyright 2026 Vincent De Nil.
-- Leaflet 1.9.4: BSD 2-Clause; its license is preserved in [vendor/leaflet-LICENSE](vendor/leaflet-LICENSE).
-- Natural Earth geography: public domain. See [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
+## Source and licensing
 
-The layout and palette were adapted from [`VincentDN/americankingdoms-projectsite`](https://github.com/VincentDN/americankingdoms-projectsite), commit `14045e3f44ba50e7409750e3c66c566c50be542c`. The original site's content and assets are not relicensed by this template. Keep the MIT copyright and permission notice in copies or substantial portions of the template, and retain the Leaflet notices when distributing it. You may replace the visible template credit in the footer.
+Adapted from [VincentDN/americankingdoms-projectsite](https://github.com/VincentDN/americankingdoms-projectsite), source commit `14045e3f44ba50e7409750e3c66c566c50be542c`. See [LICENSE](LICENSE) for code licensing and [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) for dependency and example-content notices.

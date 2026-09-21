@@ -1,447 +1,535 @@
-/* Adapted from the American Kingdoms site's warm ink / parchment design. */
+
+/* ============================================================
+   AMERICAN KINGDOMS, illuminated-proclamation design
+   Tokens → base → components → sections → responsive
+   ============================================================ */
 :root{
-  --ink:#14110d;
-  --ink-2:#1d1813;
-  --parch:#ece0c8;
-  --parch-ink:#2c2118;
-  --cream:#f5f1dc;
-  --muted:#c7bca2;
-  --crimson:#b31f34;
-  --gold:#c8a24a;
+  --ink:#14110d;         /* base dark, warm near-black        */
+  --ink-2:#1d1813;       /* raised dark panel                 */
+  --ink-3:#0f0c09;       /* deepest, for vignettes            */
+  --parch:#ece0c8;       /* parchment page                    */
+  --parch-2:#e4d5b8;     /* deeper parchment                  */
+  --parch-ink:#2c2118;   /* text on parchment                 */
+  --parch-ink-2:#5a4a38; /* muted text on parchment           */
+  --cream:#f5f1dc;       /* text on dark (matches logo)       */
+  --cream-dim:#c7bca2;   /* muted text on dark                */
+  --crimson:#b31f34;     /* Union red                         */
+  --crimson-2:#8f1526;   /* crimson hover / deep              */
+  --gold:#c8a24a;        /* heraldic gold                     */
+  --gold-2:#a58232;      /* deep gold                         */
+  --navy:#1a4062;        /* deep navy                         */
   --rule:rgba(200,162,74,.42);
+
+  --display: Georgia, serif;
+  --body: Georgia, serif;
+  --sans:'Helvetica Neue',Arial,sans-serif;
+
   --wrap:1180px;
   --pad:clamp(1.25rem,5vw,4rem);
-  --section:clamp(4rem,8vw,7rem);
-  --body:Georgia,'Times New Roman',serif;
-  --sans:'Trebuchet MS',Arial,sans-serif}
-  *{
-    box-sizing:border-box}
-    body{
-      margin:0;
-      background:var(--ink);
-      color:var(--cream);
-      font:1.1rem/1.75 var(--body)}
-      img{
-        display:block;
-        max-width:100%;
-        height:auto}
-        button,input{
-          font:inherit}
-          button,a,input{
-            touch-action:manipulation}
-            button{
-              cursor:pointer}
-              a{
-                color:inherit;
-                text-underline-offset:4px}
-                a:hover{
-                  color:var(--gold)}
-                  button:focus-visible,a:focus-visible,input:focus-visible,[tabindex]:focus-visible{
-                    outline:3px solid var(--gold);
-                    outline-offset:5px}
-                    h1,h2,h3{
-                      font-family:var(--sans);
-                      line-height:1.15;
-                      margin:0 0 1.3rem;
-                      text-wrap:balance}
-                      h1{
-                        font-size:clamp(2.3rem,4vw,3.5rem)}
-                        h2{
-                          font-size:clamp(2rem,3.5vw,3rem)}
-                          h3{
-                            font-size:1.4rem}
-                            p{
-                              margin:0 0 1.3rem}
-                              figure{
-                                margin:0}
-                                .wrap{
-                                  width:min(100% - 2*var(--pad),var(--wrap));
-                                  margin-inline:auto}
-                                  .section{
-                                    padding-block:var(--section);
-                                    border-top:1px solid var(--rule)}
-                                    .eyebrow{
-                                      font:700 .7rem/1.5 var(--sans);
-                                      text-transform:uppercase;
-                                      letter-spacing:.18em;
-                                      color:var(--gold);
-                                      margin-bottom:1.1rem}
-                                      .parchment{
-                                        background:radial-gradient(ellipse at top left,#f7eedc,transparent 70%),var(--parch);
-                                        color:var(--parch-ink)}
-                                        .parchment .eyebrow{
-                                          color:#8f1526}
-                                          .muted{
-                                            color:#5a4a38}
-                                            .ribbon{
-                                              background:var(--crimson);
-                                              text-align:center;
-                                              font:700 .65rem/1.5 var(--sans);
-                                              letter-spacing:.14em;
-                                              text-transform:uppercase;
-                                              padding:.6rem 1rem}
-                                              header{
-                                                padding:2rem 0;
-                                                border-bottom:1px solid var(--rule);
-                                                background:radial-gradient(ellipse at top,#30251b,var(--ink))}
-                                                .nav{
-                                                  display:flex;
-                                                  flex-direction:column;
-                                                  align-items:center;
-                                                  gap:1.6rem}
-                                                  .brand{
-                                                    text-decoration:none;
-                                                    text-align:center;
-                                                    font:2.4rem/1.2 var(--body);
-                                                    letter-spacing:.1em}
-                                                    .brand>span{
-                                                      display:block;
-                                                      font-size:2rem;
-                                                      color:var(--gold);
-                                                      margin-bottom:.4rem}
-                                                      .brand small{
-                                                        display:block;
-                                                        font:600 .58rem/2 var(--sans);
-                                                        letter-spacing:.3em;
-                                                        margin-top:.8rem}
-                                                        .menu-box{
-                                                          width:min(100%,960px);
-                                                          padding:.75rem 1.3rem;
-                                                          background:#4e3d36;
-                                                          border:1px solid #776356}
-                                                          .nav-links{
-                                                            display:flex;
-                                                            flex-wrap:wrap;
-                                                            justify-content:center;
-                                                            gap:.5rem 0;
-                                                            list-style:none;
-                                                            padding:0;
-                                                            margin:0}
-                                                            .nav-links li+li:before{
-                                                              content:'|';
-                                                              margin:0 1.2rem;
-                                                              color:#b7a998}
-                                                              .nav-links a{
-                                                                text-decoration:none;
-                                                                font:600 .9rem var(--sans)}
-                                                                .menu-toggle{
-                                                                  border:0;
-                                                                  background:none;
-                                                                  color:var(--cream);
-                                                                  padding:.5rem;
-                                                                  width:100%}
-                                                                  .menu-toggle span{
-                                                                    margin-left:1rem}
-                                                                    .hero{
-                                                                      position:relative;
-                                                                      isolation:isolate;
-                                                                      background:#3a2d24}
-                                                                      .hero-bg{
-                                                                        position:absolute;
-                                                                        inset:0;
-                                                                        z-index:-2}
-                                                                        .hero-bg img{
-                                                                          width:100%;
-                                                                          height:100%;
-                                                                          object-fit:cover}
-                                                                          .hero:after{
-                                                                            content:'';
-                                                                            position:absolute;
-                                                                            inset:0;
-                                                                            background:linear-gradient(90deg,#14110d05,#30251bdb 62%,#30251bf5);
-                                                                            z-index:-1}
-                                                                            .hero-inner{
-                                                                              display:grid;
-                                                                              grid-template-columns:1fr 1fr;
-                                                                              min-height:620px;
-                                                                              align-items:center;
-                                                                              padding-block:5rem}
-                                                                              .hero-copy{
-                                                                                grid-column:2;
-                                                                                padding-left:2rem}
-                                                                                .lede{
-                                                                                  max-width:48ch}
-                                                                                  .actions{
-                                                                                    display:flex;
-                                                                                    flex-wrap:wrap;
-                                                                                    gap:1rem;
-                                                                                    margin-top:2rem}
-                                                                                    .btn{
-                                                                                      display:inline-block;
-                                                                                      border:1px solid var(--gold);
-                                                                                      padding:.85rem 1.2rem;
-                                                                                      text-decoration:none;
-                                                                                      font:700 .8rem/1.4 var(--sans)}
-                                                                                      .primary{
-                                                                                        background:var(--crimson);
-                                                                                        border-color:var(--crimson);
-                                                                                        color:var(--cream)}
-                                                                                        .btn:hover{
-                                                                                          background:var(--ink);
-                                                                                          color:var(--cream)}
-                                                                                          .divider{
-                                                                                            text-align:center;
-                                                                                            color:var(--gold);
-                                                                                            margin-bottom:4rem}
-                                                                                            .split{
-                                                                                              display:grid;
-                                                                                              grid-template-columns:.85fr 1.15fr;
-                                                                                              gap:4rem;
-                                                                                              align-items:center}
-                                                                                              .portrait{
-                                                                                                padding:10px;
-                                                                                                border:1px solid var(--rule)}
-                                                                                                .portrait img{
-                                                                                                  aspect-ratio:4/5;
-                                                                                                  object-fit:cover}
-                                                                                                  blockquote{
-                                                                                                    border-left:2px solid var(--gold);
-                                                                                                    padding-left:1.4rem;
-                                                                                                    color:var(--gold);
-                                                                                                    margin:1.8rem 0;
-                                                                                                    font-size:1.3rem;
-                                                                                                    font-style:italic}
-                                                                                                    .section-heading{
-                                                                                                      display:flex;
-                                                                                                      justify-content:space-between;
-                                                                                                      gap:1rem;
-                                                                                                      align-items:end}
-                                                                                                      .section-heading p{
-                                                                                                        max-width:60ch}
-                                                                                                        .carousel-controls{
-                                                                                                          display:flex;
-                                                                                                          gap:.5rem;
-                                                                                                          margin-bottom:1.3rem}
-                                                                                                          .carousel-controls button{
-                                                                                                            width:44px;
-                                                                                                            height:44px;
-                                                                                                            background:transparent;
-                                                                                                            border:1px solid var(--crimson);
-                                                                                                            color:var(--crimson)}
-                                                                                                            .faction-track{
-                                                                                                              display:grid;
-                                                                                                              grid-auto-flow:column;
-                                                                                                              grid-auto-columns:320px;
-                                                                                                              gap:1.5rem;
-                                                                                                              overflow-x:auto;
-                                                                                                              scroll-snap-type:x mandatory;
-                                                                                                              scrollbar-color:var(--crimson) transparent;
-                                                                                                              padding-bottom:1rem;
-                                                                                                              margin-top:2rem}
-                                                                                                              .faction-card{
-                                                                                                                scroll-snap-align:start;
-                                                                                                                background:#eee2ca;
-                                                                                                                border:1px solid #5a4a3847}
-                                                                                                                .faction-card img{
-                                                                                                                  aspect-ratio:1;
-                                                                                                                  object-fit:cover}
-                                                                                                                  .faction-card>div{
-                                                                                                                    padding:1.5rem}
-                                                                                                                    .faction-card p:last-child{
-                                                                                                                      font-size:1rem;
-                                                                                                                      color:#5a4a38;
-                                                                                                                      margin:0}
-                                                                                                                      .gallery-grid{
-                                                                                                                        display:grid;
-                                                                                                                        grid-template-columns:2fr 1fr;
-                                                                                                                        gap:1.4rem;
-                                                                                                                        margin-top:2.5rem}
-                                                                                                                        .gallery-grid figure:first-child{
-                                                                                                                          grid-row:span 2}
-                                                                                                                          .gallery-grid img{
-                                                                                                                            width:100%;
-                                                                                                                            aspect-ratio:16/9;
-                                                                                                                            object-fit:cover;
-                                                                                                                            border:1px solid var(--rule)}
-                                                                                                                            .gallery-grid figure:first-child img{
-                                                                                                                              aspect-ratio:1.05}
-                                                                                                                              .gallery-grid a{
-                                                                                                                                display:block;
-                                                                                                                                cursor:zoom-in}
-                                                                                                                                figcaption{
-                                                                                                                                  font: .75rem/1.5 var(--sans);
-                                                                                                                                  color:var(--muted);
-                                                                                                                                  margin-top:.8rem}
-                                                                                                                                  .map-toolbar{
-                                                                                                                                    display:flex;
-                                                                                                                                    flex-wrap:wrap;
-                                                                                                                                    gap:1rem;
-                                                                                                                                    align-items:center;
-                                                                                                                                    font:.8rem/1.5 var(--sans);
-                                                                                                                                    margin:2rem 0 1rem}
-                                                                                                                                    .map-toolbar button{
-                                                                                                                                      background:var(--ink);
-                                                                                                                                      color:var(--cream);
-                                                                                                                                      border:1px solid var(--ink);
-                                                                                                                                      padding:.6rem 1rem}
-                                                                                                                                      .map-toolbar input{
-                                                                                                                                        accent-color:var(--crimson);
-                                                                                                                                        width:18px;
-                                                                                                                                        height:18px;
-                                                                                                                                        vertical-align:middle}
-                                                                                                                                        .map-toolbar span{
-                                                                                                                                          margin-left:auto;
-                                                                                                                                          color:#5a4a38}
-                                                                                                                                          #map{
-                                                                                                                                            height:clamp(350px,60vw,610px);
-                                                                                                                                            background:#c9d7d7;
-                                                                                                                                            border:1px solid #7e8272;
-                                                                                                                                            z-index:0}
-                                                                                                                                            #map-status{
-                                                                                                                                              font:.85rem/1.5 var(--sans)}
-                                                                                                                                              .map-index{
-                                                                                                                                                padding-top:1.5rem}
-                                                                                                                                                .map-index h3{
-                                                                                                                                                  font-size:1rem}
-                                                                                                                                                  .map-index p{
-                                                                                                                                                    font-size:.9rem}
-                                                                                                                                                    #map-locations{
-                                                                                                                                                      list-style:none;
-                                                                                                                                                      display:flex;
-                                                                                                                                                      flex-wrap:wrap;
-                                                                                                                                                      gap:.75rem;
-                                                                                                                                                      padding:0}
-                                                                                                                                                      #map-locations button{
-                                                                                                                                                        background:transparent;
-                                                                                                                                                        border:1px solid #74634c;
-                                                                                                                                                        padding:.5rem .8rem;
-                                                                                                                                                        color:var(--parch-ink)}
-                                                                                                                                                        .leaflet-container{
-                                                                                                                                                          font-family:var(--sans)}
-                                                                                                                                                          .leaflet-popup-content{
-                                                                                                                                                            line-height:1.6}
-                                                                                                                                                            .leaflet-popup-content h3{
-                                                                                                                                                              font-size:1rem;
-                                                                                                                                                              margin-bottom:.5rem}
-                                                                                                                                                              .leaflet-popup-content p{
-                                                                                                                                                                margin:0}
-                                                                                                                                                                .project-grid{
-                                                                                                                                                                  display:grid;
-                                                                                                                                                                  grid-template-columns:repeat(3,1fr);
-                                                                                                                                                                  gap:2rem;
-                                                                                                                                                                  margin-top:3rem}
-                                                                                                                                                                  .project-grid article{
-                                                                                                                                                                    padding:2rem;
-                                                                                                                                                                    border:1px solid var(--rule);
-                                                                                                                                                                    background:var(--ink-2)}
-                                                                                                                                                                    .project-grid h3{
-                                                                                                                                                                      margin-top:1rem}
-                                                                                                                                                                      .project-grid p{
-                                                                                                                                                                        font-size:1rem;
-                                                                                                                                                                        color:var(--muted);
-                                                                                                                                                                        margin:0}
-                                                                                                                                                                        .connect{
-                                                                                                                                                                          max-width:700px;
-                                                                                                                                                                          text-align:center}
-                                                                                                                                                                          footer{
-                                                                                                                                                                            padding:3rem 0;
-                                                                                                                                                                            text-align:center;
-                                                                                                                                                                            font:.85rem/1.8 var(--sans)}
-                                                                                                                                                                            footer p{
-                                                                                                                                                                              margin:.8rem 0}
-                                                                                                                                                                              .footer-brand{
-                                                                                                                                                                                font:1.2rem var(--body);
-                                                                                                                                                                                letter-spacing:.15em;
-                                                                                                                                                                                text-decoration:none;
-                                                                                                                                                                                color:var(--gold)}
-                                                                                                                                                                                .skip-link{
-                                                                                                                                                                                  position:absolute;
-                                                                                                                                                                                  left:1rem;
-                                                                                                                                                                                  top:-100px;
-                                                                                                                                                                                  z-index:10000;
-                                                                                                                                                                                  background:var(--cream);
-                                                                                                                                                                                  color:var(--ink);
-                                                                                                                                                                                  padding:1rem}
-                                                                                                                                                                                  .skip-link:focus{
-                                                                                                                                                                                    top:1rem}
-                                                                                                                                                                                    dialog{
-                                                                                                                                                                                      background:var(--ink);
-                                                                                                                                                                                      color:var(--cream);
-                                                                                                                                                                                      border:1px solid var(--gold);
-                                                                                                                                                                                      max-width:min(95vw,1100px);
-                                                                                                                                                                                      max-height:95vh;
-                                                                                                                                                                                      padding:1rem}
-                                                                                                                                                                                      dialog::backdrop{
-                                                                                                                                                                                        background:#000d}
-                                                                                                                                                                                        dialog img{
-                                                                                                                                                                                          max-height:72vh;
-                                                                                                                                                                                          margin:auto}
-                                                                                                                                                                                          dialog button{
-                                                                                                                                                                                            display:block;
-                                                                                                                                                                                            margin:0 0 1rem auto;
-                                                                                                                                                                                            padding:.5rem 1rem;
-                                                                                                                                                                                            background:var(--cream);
-                                                                                                                                                                                            color:var(--ink);
-                                                                                                                                                                                            border:0}
-                                                                                                                                                                                            dialog p{
-                                                                                                                                                                                              margin:1rem 0 0;
-                                                                                                                                                                                              font-size:.9rem}
-                                                                                                                                                                                              [hidden]{
-                                                                                                                                                                                                display:none!important}
-                                                                                                                                                                                                @media(min-width:721px){
-                                                                                                                                                                                                  .menu-toggle{
-                                                                                                                                                                                                    display:none}
-                                                                                                                                                                                                    .nav-links{
-                                                                                                                                                                                                      display:flex!important}
-                                                                                                                                                                                                    }
-                                                                                                                                                                                                    @media(max-width:900px){
-                                                                                                                                                                                                      .split{
-                                                                                                                                                                                                        gap:2rem}
-                                                                                                                                                                                                        .project-grid{
-                                                                                                                                                                                                          grid-template-columns:1fr}
-                                                                                                                                                                                                          .project-grid article{
-                                                                                                                                                                                                            padding:1.5rem}
-                                                                                                                                                                                                            .hero-copy{
-                                                                                                                                                                                                              padding-left:1rem}
-                                                                                                                                                                                                            }
-                                                                                                                                                                                                            @media(max-width:720px){
-                                                                                                                                                                                                              .brand{
-                                                                                                                                                                                                                font-size:2rem}
-                                                                                                                                                                                                                .nav-links{
-                                                                                                                                                                                                                  flex-direction:column;
-                                                                                                                                                                                                                  text-align:center}
-                                                                                                                                                                                                                  .nav-links li+li:before{
-                                                                                                                                                                                                                    display:none}
-                                                                                                                                                                                                                    .nav-links a{
-                                                                                                                                                                                                                      display:block;
-                                                                                                                                                                                                                      padding:.8rem}
-                                                                                                                                                                                                                      .hero-bg{
-                                                                                                                                                                                                                        position:relative}
-                                                                                                                                                                                                                        .hero-bg img{
-                                                                                                                                                                                                                          height:260px;
-                                                                                                                                                                                                                          object-fit:cover}
-                                                                                                                                                                                                                          .hero:after{
-                                                                                                                                                                                                                            display:none}
-                                                                                                                                                                                                                            .hero-inner{
-                                                                                                                                                                                                                              display:block;
-                                                                                                                                                                                                                              min-height:0;
-                                                                                                                                                                                                                              padding-block:2.5rem}
-                                                                                                                                                                                                                              .hero-copy{
-                                                                                                                                                                                                                                padding:0}
-                                                                                                                                                                                                                                .split{
-                                                                                                                                                                                                                                  grid-template-columns:1fr}
-                                                                                                                                                                                                                                  .portrait{
-                                                                                                                                                                                                                                    max-width:420px;
-                                                                                                                                                                                                                                    margin:auto}
-                                                                                                                                                                                                                                    .gallery-grid{
-                                                                                                                                                                                                                                      grid-template-columns:1fr}
-                                                                                                                                                                                                                                      .gallery-grid figure:first-child{
-                                                                                                                                                                                                                                        grid-row:auto}
-                                                                                                                                                                                                                                        .gallery-grid figure:first-child img{
-                                                                                                                                                                                                                                          aspect-ratio:16/9}
-                                                                                                                                                                                                                                          .section-heading{
-                                                                                                                                                                                                                                            align-items:start}
-                                                                                                                                                                                                                                            .carousel-controls{
-                                                                                                                                                                                                                                              margin-top:2rem}
-                                                                                                                                                                                                                                              .map-toolbar span{
-                                                                                                                                                                                                                                                margin-left:0}
-                                                                                                                                                                                                                                                .map-toolbar{
-                                                                                                                                                                                                                                                  gap:.75rem}
-                                                                                                                                                                                                                                                  .map-toolbar label{
-                                                                                                                                                                                                                                                    display:flex;
-                                                                                                                                                                                                                                                    align-items:center;
-                                                                                                                                                                                                                                                    gap:.5rem}
-                                                                                                                                                                                                                                                    .faction-track{
-                                                                                                                                                                                                                                                      grid-auto-columns:85%;
-                                                                                                                                                                                                                                                      gap:1rem}
-                                                                                                                                                                                                                                                    }
+  --sec:clamp(4.5rem,9vw,8rem);
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:auto}
+body{
+  margin:0;
+  background:var(--ink);
+  color:var(--cream);
+  font-family:var(--body);
+  font-size:clamp(1.06rem,.55rem + .95vw,1.24rem);
+  line-height:1.72;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+img{max-width:100%;display:block}
+a{color:inherit}
+::selection{background:var(--crimson);color:var(--cream)}
+
+h1,h2{font-family:var(--sans);font-weight:800;line-height:1.04;margin:0}
+h3{font-family:var(--sans);font-weight:600;line-height:1.08;margin:0}
+p{margin:0 0 1.1em}
+.wrap{max-width:var(--wrap);margin-inline:auto;padding-inline:var(--pad)}
+
+/* --- subtle parchment grain for dark plates --- */
+.plate{position:relative}
+.plate::before{
+  content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
+  background-image:
+    radial-gradient(circle at 20% 30%,rgba(245,241,220,.13) 0 1px,transparent 1.5px),
+    radial-gradient(circle at 75% 65%,rgba(0,0,0,.2) 0 1px,transparent 1.6px),
+    repeating-linear-gradient(7deg,rgba(245,241,220,.022) 0 1px,transparent 1px 6px);
+  background-size:31px 29px,43px 37px,auto;
+  mix-blend-mode:soft-light;opacity:.24;
+}
+.plate > :not(.about-bg):not(.map-promo-bg){position:relative;z-index:1}
+
+/* --- eyebrow + heraldic divider (the signature system) --- */
+.eyebrow{
+  font-family:var(--display);
+  font-size:.74rem;letter-spacing:.32em;text-transform:uppercase;
+  font-weight:600;color:var(--gold);
+  display:flex;align-items:center;gap:.75em;margin:0 0 1.1rem;
+}
+.eyebrow::before{content:"";width:26px;height:1px;background:var(--gold);opacity:.7;flex:none}
+.divider{display:flex;align-items:center;justify-content:center;gap:1rem;margin:0 auto;max-width:340px}
+.divider::before,.divider::after{content:"";height:1px;flex:1;background:linear-gradient(90deg,transparent,var(--rule),transparent)}
+.divider i{color:var(--gold);font-style:normal;font-size:.7rem;transform:rotate(45deg);display:inline-block;line-height:1}
+
+/* --- buttons --- */
+.btn{
+  display:inline-flex;align-items:center;gap:.6em;
+  font-family:var(--sans);font-weight:700;font-size:.82rem;
+  letter-spacing:.08em;text-transform:uppercase;text-decoration:none;
+  padding:.92em 1.6em;border:1px solid transparent;cursor:pointer;
+}
+.btn-primary{background:var(--crimson);color:var(--cream);border-color:var(--crimson)}
+.btn-primary:hover{background:var(--crimson-2);border-color:var(--crimson-2)}
+.btn-ghost{background:transparent;color:var(--cream);border-color:rgba(245,241,220,.4)}
+.btn-ghost:hover{border-color:var(--gold);color:var(--gold)}
+.btn-dark{background:var(--parch-ink);color:var(--parch);border-color:var(--parch-ink)}
+.btn-dark:hover{background:#1a130c}
+.btn-gold{background:transparent;color:var(--gold-2);border-color:var(--gold-2)}
+.btn-gold:hover{background:var(--gold-2);color:var(--parch)}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+
+/* ============================ HEADER ============================ */
+.ribbon{
+  background:var(--crimson);color:var(--cream);
+  font-family:var(--sans);font-size:.68rem;font-weight:600;letter-spacing:.075em;
+  text-transform:uppercase;text-align:center;padding:.42em 1rem;
+}
+.ribbon a{color:var(--cream);font-weight:700;text-underline-offset:3px}
+.ribbon a:hover{color:#fff}
+header{
+  position:relative;z-index:50;
+  background:
+    radial-gradient(60% 100% at 50% 0%,rgba(91,73,57,.24),transparent 72%),
+    linear-gradient(180deg,#1b1510,var(--ink));
+  border-bottom:1px solid rgba(200,162,74,.45);
+  padding-block:clamp(1.7rem,4vw,3rem) clamp(1.8rem,4vw,2.8rem);
+}
+.nav{display:flex;flex-direction:column;align-items:center;gap:clamp(1.25rem,3vw,2rem)}
+.brand{display:block;text-decoration:none}
+.brand img{height:clamp(105px,13vw,168px);width:auto;margin-inline:auto}
+.menu-box{width:min(100%,960px);background:rgba(78,61,54,.96);border:1px solid rgba(245,241,220,.1);padding:.78rem 1.3rem}
+.nav-links{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:.35rem 0;list-style:none;margin:0;padding:0}
+.nav-links li{display:flex;align-items:center}
+.nav-links li+li::before{content:"|";color:rgba(245,241,220,.38);margin-inline:clamp(.65rem,1.5vw,1.2rem);font-family:var(--sans);font-weight:500}
+.nav-links a{
+  text-decoration:none;font-family:var(--sans);font-weight:600;white-space:nowrap;
+  font-size:1rem;letter-spacing:.01em;color:var(--cream);
+  padding:.18rem .1rem .25rem;border-bottom:1px solid transparent;
+}
+.nav-links a:hover{color:var(--gold);border-color:var(--gold)}
+.burger{display:none;background:none;border:0;color:var(--cream);cursor:pointer;padding:.25rem;margin-inline:auto}
+.burger svg{width:26px;height:26px}
+
+/* ============================ HERO ============================ */
+.hero{position:relative;min-height:clamp(580px,72vh,760px);isolation:isolate;overflow:hidden}
+.hero-bg{position:absolute;inset:0;z-index:-2;background:#0c0906}
+.hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center 28%}
+.hero::after{
+  content:"";position:absolute;inset:0;z-index:-1;
+  background:
+    linear-gradient(90deg,rgba(76,60,53,.50) 0%,rgba(76,60,53,.56) 38%,rgba(76,60,53,.72) 62%,rgba(65,49,43,.88) 100%),
+    linear-gradient(180deg,rgba(76,60,53,.10),rgba(53,41,36,.26));
+}
+.hero-inner{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(360px,.95fr);align-items:center;min-height:inherit;padding-block:clamp(3rem,7vw,5.5rem)}
+.hero-copy{grid-column:2;padding-left:clamp(1rem,4vw,4rem)}
+.hero h1{
+  font-size:clamp(1.9rem,1.15rem + 2.5vw,3.1rem);font-weight:800;
+  color:var(--cream);max-width:18ch;margin-bottom:1.4rem;text-wrap:balance;
+}
+.hero p.lede{font-size:clamp(1.05rem,.94rem + .35vw,1.22rem);color:var(--cream);max-width:48ch;margin-bottom:1.9rem;text-shadow:0 1px 12px rgba(0,0,0,.4)}
+.hero-cta{display:flex;flex-wrap:wrap;gap:.9rem}
+
+/* ============================ SECTIONS ============================ */
+section{position:relative}
+.plate{background:var(--ink)}      /* dark cinematic plate */
+#gallery{border-top:1px solid rgba(200,162,74,.45)}
+.page{background:var(--parch);color:var(--parch-ink)} /* parchment reading page */
+.page{
+  background-image:
+    radial-gradient(140% 120% at 0% 0%,rgba(255,255,255,.5),transparent 55%),
+    radial-gradient(120% 130% at 100% 100%,rgba(197,170,120,.28),transparent 55%);
+}
+.page .eyebrow{color:var(--gold-2)}
+.page .eyebrow::before{background:var(--gold-2)}
+.sec-pad{padding-block:var(--sec)}
+.section-head{max-width:60ch}
+.section-head h2{font-size:clamp(1.7rem,1rem + 2.4vw,2.9rem)}
+.lead{font-size:1.18em;max-width:60ch}
+.page .muted{color:var(--parch-ink-2)}
+.plate .muted{color:var(--cream-dim)}
+
+/* --- premise (parchment) with drop cap --- */
+.premise .lead{max-width:64ch;margin-top:1.2rem}
+.premise .lead.first::first-letter{
+  font-family:var(--display);font-weight:700;color:var(--crimson);
+  float:left;font-size:4.1rem;line-height:.72;padding:.35rem .55rem .1rem 0;
+}
+.premise-actions{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:1.8rem}
+
+/* --- The World: split plate w/ portrait + quote --- */
+.world{background:linear-gradient(180deg,var(--ink),#181310);border-top:1px solid rgba(200,162,74,.45)}
+.world-grid{display:grid;grid-template-columns:0.85fr 1.15fr;gap:clamp(2rem,5vw,4.5rem);align-items:center}
+.portrait{position:relative}
+.portrait img{width:100%;border:1px solid rgba(200,162,74,.4);box-shadow:0 24px 60px rgba(0,0,0,.6)}
+.portrait::before{content:"";position:absolute;inset:-10px;border:1px solid rgba(200,162,74,.22);pointer-events:none}
+blockquote.charter{
+  font-family:var(--display);font-weight:400;font-size:clamp(1.15rem,.9rem + .8vw,1.55rem);
+  line-height:1.4;color:var(--gold);border-left:2px solid var(--gold);
+  padding-left:1.4rem;margin:0 0 1.6rem;font-style:normal;
+}
+blockquote.charter cite{display:block;font-family:var(--body);font-style:italic;font-size:.82rem;
+  letter-spacing:.04em;color:inherit;margin-top:.9rem}
+
+/* --- Factions --- */
+.factions{background:var(--parch);color:var(--parch-ink);border-top:1px solid rgba(200,162,74,.45)}
+.factions-banner{position:relative;margin:2.6rem 0 3rem;border:1px solid rgba(90,74,56,.35)}
+.factions-banner img{width:100%;height:clamp(160px,26vw,340px);object-fit:cover;object-position:center 40%;filter:sepia(.18) saturate(.9)}
+.factions-intro{font-size:1rem;color:var(--parch-ink-2);margin:.2rem 0 0;max-width:62ch}
+.factions-intro a{color:var(--crimson);text-decoration:none;border-bottom:1px solid var(--crimson);font-weight:500}
+.factions-intro a:hover{color:var(--crimson-2)}
+.faction-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1.4rem}
+.faction{
+  background:#eee2ca;
+  border:1px solid rgba(90,74,56,.28);padding:1.7rem 1.6rem 1.5rem;
+  position:relative;
+}
+.faction .rank{font-family:var(--display);font-size:.72rem;letter-spacing:.2em;color:var(--crimson);text-transform:uppercase}
+.faction h3{font-size:1.32rem;margin:.35rem 0 .7rem;color:var(--parch-ink)}
+.faction p{font-size:.98rem;color:var(--parch-ink-2);line-height:1.6;margin-bottom:1.1rem}
+.faction a.readlink{
+  font-family:var(--display);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--crimson);text-decoration:none;border-bottom:1px solid transparent;
+}
+.faction a.readlink:hover{border-color:var(--crimson);color:var(--crimson-2)}
+.featured-wiki{margin-top:clamp(2.7rem,5vw,4.2rem);padding-top:clamp(1.8rem,3vw,2.5rem);border-top:1px solid rgba(90,74,56,.25)}
+.featured-wiki-label{margin:0 0 .8rem;font-family:var(--sans);font-size:.75rem;font-weight:600;letter-spacing:.23em;text-transform:uppercase;color:var(--crimson)}
+.featured-wiki-list{border-bottom:1px solid rgba(90,74,56,.2)}
+.featured-wiki-item{display:grid;grid-template-columns:1.2rem minmax(0,1fr);gap:.8rem;padding:1.25rem 0 1.35rem;border-top:1px solid rgba(90,74,56,.2)}
+.featured-wiki-arrow{font-family:var(--sans);font-size:1rem;font-weight:600;line-height:1.45;color:var(--crimson)}
+.featured-wiki-item h3{margin:0 0 .25rem;font-family:var(--sans);font-size:clamp(1.05rem,.98rem + .25vw,1.2rem);font-weight:600;line-height:1.3}
+.featured-wiki-item h3 a{color:var(--parch-ink);text-decoration:none}
+.featured-wiki-item h3 a:hover{color:var(--crimson)}
+.featured-wiki-item p{max-width:92ch;margin:0;font-family:var(--sans);font-size:.94rem;font-weight:500;line-height:1.55;color:var(--parch-ink-2)}
+.featured-wiki-source{white-space:nowrap;color:var(--crimson);text-decoration:none;border-bottom:1px solid rgba(139,30,45,.35)}
+.featured-wiki-source:hover{border-color:var(--crimson-2);color:var(--crimson-2)}
+
+/* --- Gallery --- */
+.gallery-subtext{margin:.7rem 0 0;color:var(--cream-dim);font-size:1rem;line-height:1.5}
+.gallery-shell{position:relative}
+.gallery-grid figure[role="button"]:focus-visible{outline:2px solid var(--gold);outline-offset:4px}
+.gallery-grid .g-storyboard img{object-fit:contain;background:var(--ink-2)}
+.gallery-shell.is-collapsed .gallery-extra{display:none}
+.gallery-shell.is-collapsed::after{content:"";position:absolute;z-index:1;inset:auto 0 0;height:min(180px,34%);background:linear-gradient(180deg,transparent,var(--ink));pointer-events:none}
+.gallery-reveal{display:block;position:relative;z-index:2;margin:1.5rem auto 0;min-height:44px;padding:.7rem 1.6rem;border:1px solid rgba(200,162,74,.65);background:var(--ink-2);color:var(--cream);font:600 .875rem/1.4 var(--sans);letter-spacing:.1em;text-transform:uppercase;cursor:pointer}
+.gallery-reveal[hidden]{display:none}
+.gallery-shell.is-collapsed .gallery-reveal{position:absolute;bottom:20px;left:50%;transform:translateX(-50%);margin:0}
+.gallery-reveal:hover{background:var(--ink);border-color:var(--gold)}
+
+.gallery-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:14px;margin-top:2.6rem}
+.gallery-grid figure{margin:0;position:relative;overflow:hidden;cursor:zoom-in;border:1px solid rgba(200,162,74,.16)}
+.gallery-grid img{width:100%;height:100%;object-fit:cover;filter:grayscale(.15) contrast(1.02)}
+.gallery-grid figure:hover img{filter:grayscale(0) contrast(1.05)}
+.g-wide{grid-column:span 8;aspect-ratio:16/9}
+.g-tall{grid-column:span 4;aspect-ratio:3/4}
+.g-half{grid-column:span 4;aspect-ratio:1/1}
+.g-third{grid-column:span 4;aspect-ratio:16/10}
+.g-landscape{grid-column:span 6;aspect-ratio:16/9}
+
+/* --- Map promo band --- */
+.map-promo{position:relative;isolation:isolate;overflow:hidden;background:#1d1813;border-top:1px solid rgba(200,162,74,.45)}
+.map-promo-bg{position:absolute;inset:0;z-index:-2}
+.map-promo-bg img{width:100%;height:100%;object-fit:cover;object-position:center 30%}
+.map-promo::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(17,14,10,.96) 0%,rgba(17,14,10,.88) 34%,rgba(17,14,10,.52) 64%,rgba(17,14,10,.1) 100%)}
+.map-promo .inner{max-width:56ch}
+.map-promo .inner p{color:var(--cream-dim)}
+.map-promo .inner .btn{margin-top:1.6rem}
+@media(max-width:700px){.map-promo::after{background:linear-gradient(180deg,rgba(15,12,9,.95) 0%,rgba(15,12,9,.9) 55%,rgba(15,12,9,.82) 100%)}}
+
+/* --- Art prints feature --- */
+.prints{background:var(--parch);color:var(--parch-ink)}
+.prints + .prints{padding-top:0}
+#prints{border-top:1px solid rgba(200,162,74,.45)}
+.prints-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(2rem,5vw,4rem);align-items:center}
+.prints-art{margin:0;position:relative;min-width:0;width:100%;aspect-ratio:1;overflow:hidden;cursor:pointer}
+.prints-art img{width:100%;height:auto;object-fit:cover;object-position:center}
+.prints-art .prints-hover{position:absolute;inset:0;height:100%;opacity:0;transition:opacity .38s ease}
+.prints-art:hover .prints-hover,.prints-art:focus .prints-hover{opacity:1}
+.prints-art:focus-visible{outline:3px solid var(--gold-2);outline-offset:-5px}
+.prints-copy{min-width:0}
+.prints-copy .section-head{margin-bottom:1.2rem}
+.prints-copy p a{text-decoration:underline;text-underline-offset:.18em}
+.prints-copy p a:hover{color:var(--crimson)}
+.prints-copy .muted{color:var(--parch-ink-2)}
+.prints-divider{width:82px;height:1px;background:var(--gold-2);margin:1.7rem 0;opacity:.75}
+.prints-story{color:var(--parch-ink-2)}
+.prints-copy .btn{margin-top:.7rem}
+.prints-actions{display:flex;flex-wrap:wrap;align-items:center;gap:.8rem}
+.prints--reverse .prints-art{grid-column:2;grid-row:1}
+.prints--reverse .prints-copy{grid-column:1;grid-row:1}
+.flags .prints-hover{object-fit:contain;background:var(--parch)}
+.btn-outline-dark{background:transparent;color:var(--parch-ink);border-color:rgba(62,46,35,.45)}
+.btn-outline-dark:hover{color:var(--crimson);border-color:var(--crimson)}
+
+/* --- Contribute / Join --- */
+.join{background:linear-gradient(180deg,#181310,var(--ink));border-top:1px solid rgba(200,162,74,.45)}
+.join-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(2rem,5vw,4rem);align-items:center}
+.join-actions{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:1.8rem}
+.backer-carousel{min-width:0;max-width:520px;margin-inline:auto}
+.backer-carousel-head{display:flex;align-items:center;justify-content:space-between;gap:1rem;margin-bottom:.8rem}
+.backer-carousel-head p{font-size:.82rem;color:var(--cream-dim);font-style:italic;margin:0}
+.backer-controls .tc-btn{width:40px;height:40px}
+.backer-track{display:grid;grid-auto-flow:column;grid-auto-columns:100%;overflow-x:auto;scroll-snap-type:x mandatory;
+  scrollbar-width:none;cursor:grab;border:1px solid rgba(200,162,74,.35);box-shadow:0 22px 50px rgba(0,0,0,.55)}
+.backer-track::-webkit-scrollbar{display:none}
+.backer-track.dragging{cursor:grabbing;scroll-snap-type:none}
+.backer-slide{scroll-snap-align:start;margin:0;min-width:0;background:#0c0906;cursor:zoom-in}
+.backer-slide img{display:block;width:100%;height:clamp(300px,36vw,430px);object-fit:contain;background:#0c0906}
+.backer-slide figcaption{min-height:3.2em;padding:.72rem 1rem;font-size:.78rem;line-height:1.45;color:var(--cream-dim);font-style:italic;text-align:center;background:var(--ink-2)}
+.backer-slide:focus-visible{outline:3px solid var(--gold);outline-offset:-4px}
+
+/* --- About KCC (dark plate w/ tavern art) --- */
+.about{position:relative;isolation:isolate;overflow:hidden;background:#4a4039;border-top:1px solid rgba(200,162,74,.45)}
+.about-bg{position:absolute;inset:0;z-index:-2}
+.about-bg img{width:100%;height:100%;object-fit:cover;object-position:center 48%;opacity:.62;filter:grayscale(.72) sepia(.08)}
+.about::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(45,34,29,.88) 0%,rgba(45,34,29,.74) 42%,rgba(45,34,29,.36) 72%,rgba(45,34,29,.18) 100%)}
+.about .inner{max-width:60ch}
+
+/* --- Explore more cards --- */
+.explore{background:var(--parch);color:var(--parch-ink);border-top:1px solid rgba(200,162,74,.45)}
+.explore-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.6rem;margin-top:2.6rem}
+.ex-card{border:1px solid rgba(90,74,56,.3);overflow:hidden;background:#f4ecda;display:flex;flex-direction:column}
+.ex-card .ex-img{aspect-ratio:16/9;overflow:hidden}
+.ex-card .ex-img img{width:100%;height:100%;object-fit:cover;filter:grayscale(.1)}
+.ex-card .ex-img img.ex-photo{filter:none}
+.ex-body{padding:1.6rem 1.6rem 1.8rem;display:flex;flex-direction:column;flex:1}
+.ex-body h3{font-size:1.28rem;margin-bottom:.6rem}
+.ex-body p{font-size:.98rem;color:var(--parch-ink-2);margin-bottom:1.3rem}
+.ex-body p a{color:var(--crimson);font-weight:600;text-underline-offset:2px}
+.ex-body p a:hover{color:var(--crimson-2)}
+.ex-body .btn{margin-top:auto;align-self:flex-start}
+
+/* --- Connect --- */
+.connect{background:linear-gradient(180deg,var(--ink),var(--ink-3));border-top:1px solid rgba(200,162,74,.45)}
+.connect .lead{color:var(--cream-dim)}
+.connect-photo{max-width:820px;margin:2.4rem auto 2rem;position:relative}
+.connect-photo img{width:100%;border:1px solid rgba(200,162,74,.4);box-shadow:0 24px 60px rgba(0,0,0,.6)}
+.connect-photo::before{content:"";position:absolute;inset:-9px;border:1px solid rgba(200,162,74,.22);pointer-events:none}
+.connect .inquiry{font-size:.98rem;color:var(--cream-dim);margin:1.6rem 0 0}
+.connect .inquiry a{color:var(--gold);text-decoration:none;border-bottom:1px solid rgba(200,162,74,.4)}
+.connect .inquiry a:hover{color:var(--cream)}
+.connect .follow-line{font-family:var(--display);letter-spacing:.06em;color:var(--cream-dim);margin:0 0 1.6rem;font-size:.95rem}
+.connect .follow-line a{color:var(--gold);text-decoration:none;border-bottom:1px solid rgba(200,162,74,.4)}
+.connect-actions{display:flex;flex-wrap:wrap;gap:.9rem;margin:1.8rem 0 2.6rem}
+.socials{display:flex;flex-wrap:wrap;gap:.7rem}
+.socials a{
+  display:inline-flex;align-items:center;gap:.55em;text-decoration:none;
+  font-family:var(--display);font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--cream-dim);border:1px solid rgba(245,241,220,.16);padding:.7em 1.1em;
+}
+.socials a:hover{color:var(--gold);border-color:var(--gold)}
+.socials svg{width:16px;height:16px;fill:currentColor}
+
+/* --- Footer --- */
+footer{background:var(--ink-3);border-top:1px solid rgba(200,162,74,.45);text-align:center;padding:3.4rem var(--pad) 2.6rem}
+footer .crest-button{display:block;margin:0 auto 1rem;padding:0;border:0;background:transparent;cursor:pointer}
+footer .crest{width:46px;margin:0;opacity:.9;transition:opacity .2s}
+footer .crest-button:hover .crest,footer .crest-button:focus-visible .crest{opacity:1}
+footer .motto{font-family:var(--display);letter-spacing:.24em;text-transform:uppercase;font-size:.8rem;color:var(--gold);margin-bottom:.7rem}
+footer .fine{font-size:.82rem;color:var(--cream-dim);line-height:1.7}
+footer a{color:var(--cream-dim);text-underline-offset:3px}
+
+/* --- video facade --- */
+.video-facade{position:relative;overflow:hidden;background:#0c0906;cursor:pointer}
+.video-facade:focus-visible{outline:3px solid var(--gold);outline-offset:4px}
+.video-facade iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.video-wrap{margin-top:2.4rem;aspect-ratio:16/9;border:1px solid rgba(200,162,74,.3)}
+.video-wrap img{width:100%;height:100%;object-fit:cover;opacity:.6}
+.video-facade .play{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:.8rem;padding:1rem;text-align:center}
+.video-facade .play span{font-family:var(--sans);font-weight:700;letter-spacing:.11em;text-transform:uppercase;font-size:.78rem;color:var(--cream);text-shadow:0 2px 12px rgba(0,0,0,.9)}
+.video-facade .disc{width:74px;height:74px;border-radius:50%;background:var(--crimson);display:flex;align-items:center;justify-content:center;box-shadow:0 8px 25px rgba(0,0,0,.35)}
+.video-facade .disc svg{width:26px;height:26px;fill:var(--cream);margin-left:4px}
+.shorts-collection{margin-top:clamp(2.8rem,6vw,4.8rem);padding-top:clamp(2rem,4vw,3rem);border-top:1px solid rgba(200,162,74,.2)}
+.shorts-collection h3{font-size:clamp(1.45rem,1rem + 1.25vw,2rem);margin-bottom:.45rem}
+.shorts-intro{color:var(--cream-dim);font-size:.98rem;max-width:58ch;margin:0}
+.shorts-track{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(190px,240px);gap:1.5rem;margin-top:1.7rem;
+  overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:1rem;scrollbar-width:thin;scrollbar-color:var(--gold-2) transparent;cursor:grab}
+.shorts-track.dragging{cursor:grabbing;scroll-snap-type:none}
+.shorts-track::-webkit-scrollbar{height:6px}
+.shorts-track::-webkit-scrollbar-thumb{background:var(--gold-2)}
+.short-card{scroll-snap-align:start;margin:0;border:1px solid rgba(200,162,74,.28);background:var(--ink-2);display:flex;flex-direction:column}
+.short-video{aspect-ratio:9/16}
+.short-video img{width:100%;height:100%;object-fit:cover;object-position:center}
+.short-video::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,10,7,.05),rgba(15,10,7,.28));pointer-events:none}
+.short-video[data-playing]::after{display:none}
+.video-facade[data-playing]{cursor:default}
+.short-video .play{z-index:1}
+.short-video .disc{width:58px;height:58px}
+.short-video .disc svg{width:21px;height:21px}
+.short-card figcaption{padding:1rem 1.05rem 1.1rem;min-height:4.9em;color:var(--cream);font-family:var(--sans);font-weight:600;font-size:.9rem;line-height:1.35}
+
+/* --- lightbox --- */
+.lightbox{position:fixed;inset:0;z-index:100;width:100%;height:100%;max-width:none;max-height:none;margin:0;border:0;background:rgba(8,6,4,.96);color:var(--cream);padding:64px 76px 30px;overflow:auto}
+.lightbox::backdrop{background:rgba(8,6,4,.94)}
+.lightbox[open]{display:flex;align-items:center;justify-content:center}
+.lightbox figure{margin:0;max-width:100%;text-align:center}
+.lightbox img{display:block;max-width:100%;max-height:calc(100dvh - 180px);width:auto;height:auto;margin:auto;object-fit:contain;border:1px solid rgba(200,162,74,.4);box-shadow:0 30px 80px rgba(0,0,0,.7)}
+.lightbox figcaption{max-width:80ch;margin:1rem auto 0;font-size:.875rem;line-height:1.5;color:var(--cream-dim)}
+.lightbox button{position:absolute;display:grid;place-items:center;width:48px;height:48px;background:var(--ink-2);border:1px solid rgba(200,162,74,.5);color:var(--cream);font:2rem/1 var(--body);cursor:pointer}
+.lightbox button:hover{border-color:var(--gold)}
+.lightbox .close{top:12px;right:16px}
+.lightbox-prev{top:calc(50% - 24px);left:12px}
+.lightbox-next{top:calc(50% - 24px);right:12px}
+body.lightbox-open{overflow:hidden}
+@media(max-width:600px){
+  .lightbox{padding:70px 16px 90px}
+  .lightbox img{max-height:calc(100dvh - 260px)}
+  .lightbox-prev,.lightbox-next{top:auto;bottom:20px}
+  .lightbox-prev{left:calc(50% - 60px)}
+  .lightbox-next{right:calc(50% - 60px)}
+}
+
+/* --- reveal --- */
+
+/* ============================ MEET THE TEAM (carousel) ============================ */
+.team{background:linear-gradient(180deg,var(--ink-3),var(--ink));border-top:1px solid rgba(200,162,74,.45)}
+.team-head{display:flex;align-items:flex-end;justify-content:space-between;gap:1.5rem;flex-wrap:wrap}
+.team-controls{display:flex;gap:.6rem;flex:none}
+.tc-btn{width:46px;height:46px;flex:none;border:1px solid rgba(200,162,74,.4);background:transparent;color:var(--gold);
+  cursor:pointer;display:flex;align-items:center;justify-content:center;font-family:var(--body)}
+.tc-btn:hover{background:var(--gold-2);color:var(--parch);border-color:var(--gold-2)}
+.tc-btn:disabled{opacity:.3;cursor:default}
+.tc-btn svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.8}
+.team-track{
+  display:grid;grid-auto-flow:column;grid-auto-columns:minmax(280px,320px);gap:1.5rem;
+  margin-top:2.4rem;overflow-x:auto;scroll-snap-type:x mandatory;
+  padding-bottom:1rem;scrollbar-width:thin;scrollbar-color:var(--gold-2) transparent;
+  cursor:grab;
+}
+.team-track.dragging{cursor:grabbing;scroll-snap-type:none}
+.team-track::-webkit-scrollbar{height:6px}
+.team-track::-webkit-scrollbar-thumb{background:var(--gold-2)}
+.member{scroll-snap-align:start;background:var(--ink-2);border:1px solid rgba(200,162,74,.18);
+  display:flex;flex-direction:column}
+.member .photo{aspect-ratio:1/1;overflow:hidden;background:#0c0906}
+.member .photo img{width:100%;height:100%;object-fit:cover;filter:grayscale(.25) contrast(1.03)}
+.member .m-body{padding:1.5rem 1.5rem 1.7rem;display:flex;flex-direction:column;flex:1}
+.member .m-role{font-family:var(--display);font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
+.member h3{font-size:1.3rem;margin:.4rem 0 .8rem;color:var(--cream)}
+.member p{font-size:.95rem;line-height:1.62;color:var(--cream-dim);margin-bottom:1rem}
+.member .m-links{margin-top:auto;display:flex;flex-wrap:wrap;gap:.3rem .9rem}
+.member .m-links a{font-family:var(--display);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--gold);text-decoration:none;border-bottom:1px solid rgba(200,162,74,.4);padding-bottom:1px}
+.member .m-links a:hover{color:var(--cream);border-color:var(--cream)}
+@media (prefers-reduced-motion:reduce){.team-track{scroll-behavior:auto}}
+
+/* --- Factions carousel (parchment) --- */
+.factions .tc-btn{border-color:var(--crimson);color:var(--crimson)}
+.factions .tc-btn:hover{background:var(--crimson);color:var(--cream);border-color:var(--crimson)}
+.faction-track{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(280px,320px);gap:1.5rem;margin-top:2.4rem;
+  overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:1rem;scrollbar-width:thin;scrollbar-color:var(--crimson) transparent;cursor:grab}
+.faction-track.dragging{cursor:grabbing;scroll-snap-type:none}
+.faction-track::-webkit-scrollbar{height:6px}
+.faction-track::-webkit-scrollbar-thumb{background:var(--crimson)}
+.faction-card{scroll-snap-align:start;background:#eee2ca;border:1px solid rgba(90,74,56,.28);display:flex;flex-direction:column}
+.faction-card .fc-photo{aspect-ratio:1/1;overflow:hidden;background:#0c0906}
+.faction-card .fc-photo img{width:100%;height:100%;object-fit:cover}
+.faction-card .fc-body{padding:1.5rem 1.5rem 1.7rem;display:flex;flex-direction:column;flex:1}
+.faction-card h3{font-size:1.3rem;margin:0 0 .8rem;color:var(--parch-ink)}
+.faction-card p{font-size:.95rem;color:var(--parch-ink-2);line-height:1.62;margin-bottom:1rem}
+.faction-card .readlink{margin-top:auto;align-self:flex-start;font-family:var(--display);font-size:.72rem;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--crimson);text-decoration:none;border-bottom:1px solid transparent;padding-bottom:1px}
+.faction-card .readlink:hover{border-color:var(--crimson);color:var(--crimson-2)}
+@media (prefers-reduced-motion:reduce){.faction-track{scroll-behavior:auto}}
+@media (prefers-reduced-motion:reduce){.shorts-track{scroll-behavior:auto}}
+@media (prefers-reduced-motion:reduce){.prints-art .prints-hover{transition:none}}
+@media (prefers-reduced-motion:reduce){.backer-track{scroll-behavior:auto}}
+
+/* ============================ RESPONSIVE ============================ */
+@media (max-width:900px){
+  .world-grid,.join-grid{grid-template-columns:1fr}
+  .join-grid .backer-carousel{order:-1}
+  .prints-grid{grid-template-columns:1fr}
+  .prints--reverse .prints-art,.prints--reverse .prints-copy{grid-column:auto;grid-row:auto}
+  .hero-inner{grid-template-columns:minmax(0,.7fr) minmax(340px,1.3fr)}
+  .hero-copy{padding-left:clamp(.5rem,3vw,2rem)}
+  .world .portrait{max-width:420px;margin-inline:auto}
+  .join-art{max-width:440px;margin-inline:auto}
+  .g-wide{grid-column:span 12}
+  .g-tall,.g-half,.g-third{grid-column:span 6}
+}
+@media (max-width:720px){
+  header{padding-block:1.5rem}
+  .brand img{height:96px}
+  .menu-box{padding:.55rem .8rem}
+  .nav-links{display:none}
+  .nav-links.open{display:flex;flex-direction:column;gap:0;padding-top:.5rem}
+  .nav-links.open li{display:block;width:100%}
+  .nav-links.open li+li::before{display:none}
+  .nav-links.open a{display:block;padding:.72rem 0;border-bottom:1px solid rgba(245,241,220,.12);text-align:center}
+  .burger{display:block}
+  /* The dedicated mobile artwork stays uncropped; only its bottom edge fades. */
+  .hero{--hero-mobile-brown:#3a2d24;min-height:0;background:var(--hero-mobile-brown)}
+  .hero-bg{display:block;position:relative;inset:auto;z-index:auto;background:var(--hero-mobile-brown)}
+  .hero-bg img{height:auto;aspect-ratio:1920 / 1855;object-fit:contain;object-position:center}
+  .hero-bg::after{content:"";position:absolute;inset:auto 0 0;height:18%;background:linear-gradient(180deg,rgba(58,45,36,0),var(--hero-mobile-brown));pointer-events:none}
+  .hero::after{display:none}
+  .hero-inner{position:relative;display:block;min-height:0;margin-top:clamp(-2rem,-5vw,-1rem);padding-block:0 3.5rem}
+  .hero-copy{padding-left:0;max-width:600px;margin-left:auto}
+  .hero h1{max-width:none}
+  .hero p.lede{text-shadow:none}
+  .g-tall,.g-half,.g-third,.g-wide,.g-landscape{grid-column:span 12}
+  .g-half{aspect-ratio:16/10}
+  .shorts-track{grid-auto-columns:minmax(160px,68vw);gap:1rem}
+  .short-card figcaption{font-size:.84rem;padding:.85rem;min-height:4.6em}
+}
+/* ============================ NEWSLETTER MODAL ============================ */
+.newsletter-modal[hidden]{display:none}
+.newsletter-modal{position:fixed;inset:0;z-index:1000;display:grid;place-items:center;padding:clamp(1rem,4vw,3rem)}
+.newsletter-backdrop{position:absolute;inset:0;border:0;background:rgba(47,31,22,.84);backdrop-filter:blur(9px);-webkit-backdrop-filter:blur(9px);cursor:pointer}
+.newsletter-card{position:relative;display:grid;grid-template-columns:minmax(0,1.02fr) minmax(300px,.98fr);width:min(940px,100%);max-height:min(720px,calc(100vh - 2rem));overflow:auto;background:var(--paper,#f5f1dc);color:var(--ink,#29231d);border:1px solid rgba(198,155,73,.72);box-shadow:0 28px 90px rgba(16,8,4,.58)}
+.newsletter-image{min-height:420px;margin:0}
+.newsletter-image img{display:block;width:100%;height:100%;object-fit:cover;object-position:center}
+.newsletter-copy{position:relative;z-index:1;display:flex;flex-direction:column;justify-content:center;padding:clamp(2rem,5vw,4.25rem)}
+.newsletter-copy h2{margin:0 0 1rem;color:var(--brown,#3a2d24);font-size:clamp(2rem,4vw,3.25rem);font-weight:900;line-height:.98;text-transform:uppercase}
+.newsletter-copy p{margin:0 0 1.6rem;font-size:clamp(1rem,1.5vw,1.12rem);line-height:1.65}
+.newsletter-copy .btn{align-self:flex-start}
+.newsletter-close{position:absolute;z-index:3;top:.8rem;right:.8rem;display:grid;place-items:center;width:2.65rem;height:2.65rem;padding:0;border:0;border-radius:50%;background:var(--red,#7c2924);color:#f5f1dc;font:400 1.65rem/1 Arial,sans-serif;cursor:pointer}
+.newsletter-close span{display:block;line-height:1;transform:translateY(-.04em)}
+.newsletter-close:hover,.newsletter-close:focus-visible{background:var(--red,#7c2924);outline:2px solid var(--gold,#c69b49);outline-offset:2px}
+body.newsletter-open{overflow:hidden}
+
+/* ============================ NEWSLETTER FORM ============================ */
+.sr-only{position:absolute;width:1px;height:1px;padding:0;overflow:hidden;clip-path:inset(50%);white-space:nowrap;border:0}
+.newsletter-form-row{display:flex;flex-wrap:wrap;justify-content:center;gap:.7rem;max-width:26rem;margin:0 auto}
+.newsletter-copy .newsletter-form-row{justify-content:flex-start;margin:0}
+.newsletter-form-row input[type=email]{flex:1;min-width:12rem;padding:.92rem 1.1em;border:1px solid rgba(200,162,74,.4);background:#fdfbf1;color:var(--parch-ink);font:400 1rem/1.4rem var(--sans)}
+.newsletter-form-row input[type=email]::placeholder{color:var(--parch-ink-2)}
+.newsletter-form .btn{flex:none}
+/* Match the button's box height to the input's exactly: both sides use
+   rem/absolute units for padding and line-height rather than the .btn
+   default's em (which is relative to the button's own smaller uppercase
+   font-size and so came out shorter than the input). */
+.newsletter-form-row .btn{padding-block:.92rem;line-height:1.4rem}
+.newsletter-form button:disabled{opacity:.6;cursor:default}
+.newsletter-hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.newsletter-error{margin:.9rem 0 0;color:#e2a5a5;font-size:.92rem}
+.newsletter-success-title{margin:0 0 .4rem;color:var(--cream);font-family:var(--display);font-size:1.4rem}
+.newsletter-success-copy{margin:0;color:var(--cream-dim);font-size:.98rem}
+@media(max-width:560px){.newsletter-form-row{flex-direction:column}}
+@media (max-width:720px){
+  .newsletter-modal{padding:.75rem}
+  .newsletter-card{grid-template-columns:1fr;max-height:calc(100vh - 1.5rem)}
+  .newsletter-image{min-height:0;height:clamp(190px,35vh,280px)}
+  .newsletter-copy{padding:1.65rem 1.5rem 2rem}
+  .newsletter-copy h2{font-size:clamp(1.65rem,8vw,2.25rem)}
+}
+@media (prefers-reduced-motion:no-preference){
+  .newsletter-card{animation:newsletter-in .28s ease-out both}
+  @keyframes newsletter-in{from{opacity:0;transform:translateY(18px) scale(.985)}to{opacity:1;transform:none}}
+}
+
+.template-brand{font:clamp(2rem,6vw,3.8rem) Georgia,serif;letter-spacing:.14em;text-align:center;padding:1rem 0}.demo-notice{font:.8rem/1.6 Arial,sans-serif;color:var(--cream-dim);max-width:70ch;margin:1rem auto}.template-footer{font:.9rem/1.8 Arial,sans-serif}.template-footer p{margin:1rem auto}.template-footer a{color:var(--gold)}.template-footer nav{line-height:2}.atlas-cards{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:2rem}.atlas-card{display:block;text-decoration:none;color:var(--parch-ink);border:1px solid #9d8961;background:#f4e9d4;padding:1.4rem}.atlas-card:hover{color:var(--parch-ink);border-color:var(--crimson)}.atlas-card img{width:100%;height:260px;object-fit:cover;margin-bottom:1.5rem}.atlas-card p{font-size:1rem}.atlas-card strong{font:.9rem Arial,sans-serif;color:var(--crimson)}html:not(.js) .nav-links{display:flex}html:not(.js) .burger{display:none}.newsletter-error{display:block;color:var(--cream);padding-top:.8rem}.newsletter-error[hidden]{display:none}:focus-visible{outline:3px solid var(--gold);outline-offset:4px}@media(max-width:720px){.atlas-cards{grid-template-columns:1fr}.atlas-card img{height:230px}.hero p.lede{font-size:1.1rem}}

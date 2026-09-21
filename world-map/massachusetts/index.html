@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <base href="../">
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#2c2118"><title>Massachusetts Counties, 1477 | World Atlas</title>
+  <meta name="description" content="Explore example worldbuilding atlases: Kaiserreich Europe 1936 and American Kingdoms North America 1477.">
+  <link rel="icon" href="../assets/favicon.svg"><link rel="stylesheet" href="../vendor/leaflet.css"><link rel="stylesheet" href="atlas.css">
+  <script defer src="../vendor/leaflet.js"></script><script defer src="config.js"></script><script defer src="atlas.js"></script><script defer src="music.js"></script>
+  <link rel="canonical" href="https://vincentdn.github.io/worldbuilding-website-template/world-map/massachusetts/">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Map","name":"Massachusetts counties — example atlas, 1477","url":"https://vincentdn.github.io/worldbuilding-website-template/world-map/massachusetts/","isPartOf":{"@id":"https://vincentdn.github.io/worldbuilding-website-template/world-map/#page"}}</script>
+</head>
+<body data-scenario="massachusetts">
+  <header>
+    <a class="atlas-brand" href="../">✦ YOUR WORLD</a>
+    <div class="atlas-title"><h1 id="atlas-title">World atlas</h1><p>Realms, cultures &amp; stories</p></div>
+    <nav aria-label="Atlas controls">
+      <a class="map-button" id="parent-map" href="?map=north-america&amp;return=1" hidden>Back to atlas</a>
+      <button id="home-view" type="button">Reset view</button>
+      <button id="panel-toggle" type="button" aria-controls="panel" aria-expanded="true">Map key</button>
+      <div class="music-player"><button id="music-toggle" type="button" aria-expanded="false" aria-controls="music-popover">♫ Music</button><div id="music-popover" class="music-popover" hidden><button id="music-playpause" type="button" aria-label="Play music">▶</button><label for="music-volume">Volume</label><input id="music-volume" type="range" min="0" max="100" value="18"><span id="music-track">Atlas ambience</span></div></div>
+    </nav>
+    <audio id="music-audio" preload="none" loop></audio>
+  </header>
+  <main>
+    <div id="map" role="region" aria-label="Interactive atlas. Arrow keys pan; plus and minus zoom."></div>
+    <aside id="panel" aria-labelledby="panel-title">
+      <div class="panel-heading"><h2 id="panel-title">Map key</h2><button id="panel-close" type="button" aria-label="Close map panel">×</button></div>
+      <div class="panel-body">
+        <div id="key-content">
+          <label for="scenario">Choose an atlas</label><select id="scenario"><option value="europe">Kaiserreich · Europe 1936</option><option value="north-america">American Kingdoms · North America 1477</option><option value="blank">Your blank world</option></select>
+          <p id="scenario-description" class="reference-note"></p>
+          <label for="realm-search">Search territories</label><input id="realm-search" type="search" placeholder="Type a name…">
+          <label for="realm-finder">Find a realm</label><select id="realm-finder" disabled><option value="">Choose a territory…</option></select>
+          <div id="region-filter-wrap" hidden><label for="region-filter">Subregion</label><select id="region-filter"><option value="">All subregions</option></select></div>
+          <fieldset><legend>Map mode</legend><div class="mode-options"><label class="mode-option"><input type="radio" name="mapmode" value="realms" checked><span class="mode-option-title">Realms</span><span class="mode-option-desc">Alliances and federations</span></label><label class="mode-option"><input type="radio" name="mapmode" value="cultures"><span class="mode-option-title">Cultures</span><span class="mode-option-desc">Heritage and origins</span></label></div></fieldset>
+          <fieldset><legend>Show on the map</legend>
+            <label><input id="countries" type="checkbox" checked> Established realms</label><label><input id="regions" type="checkbox" checked> Regions &amp; provisional territories</label><label><input id="labels" type="checkbox" checked> Names &amp; heraldry</label><label><input id="cities" type="checkbox" checked> Cities</label><label><input id="rivers" type="checkbox" checked> River overlays</label><label id="reference-wrap" hidden><input id="reference" type="checkbox" checked> Reference image</label>
+          </fieldset>
+          <p id="map-detail-note" class="reference-note"></p><a id="detail-switch" href="?detail=lite">Switch to light map</a>
+          <p id="scenario-note" class="reference-note"></p>
+          <a id="editor-toggle" class="map-button" href="?edit=1">Open territory editor</a>
+        </div>
+        <section id="details" hidden aria-live="polite"><img id="detail-flag" hidden alt=""><h2 id="detail-name"></h2><p id="detail-author"></p><p id="detail-description"></p><p id="detail-culture"></p><a id="detail-link" hidden rel="noopener" target="_blank">Read the wiki article ↗</a><a id="detail-shop" hidden rel="noopener" target="_blank">Get this flag ↗</a><a id="submap-link" class="map-button map-button-red" hidden>Open duchy &amp; county map</a><button id="back-to-key" type="button">Back to map key</button></section>
+        <section id="editor" hidden>
+          <h2>Chart a territory</h2><p class="reference-note">Draw a polygon using the map toolbar, or select a territory. Export your changes before leaving.</p>
+          <form id="edit-form"><label>Name <input id="edit-name" maxlength="100" required></label><label>Layer <select id="edit-kind"><option value="country">Established realm</option><option value="region">Region / provisional</option></select></label><label>Color <input id="edit-color" type="color" value="#b31f34"></label><label>Culture <input id="edit-culture" maxlength="100"></label><label>Alliance <input id="edit-alliance" maxlength="100"></label><label>Contributor <input id="edit-author" maxlength="100"></label><label>Description <textarea id="edit-description" maxlength="2000"></textarea></label><label>Wiki URL <input id="edit-wiki" type="url" placeholder="https://…"></label><label>Flag image URL <input id="edit-flag" placeholder="assets/flags/your-flag.svg"></label><label>Flag shop URL <input id="edit-shop" type="url" placeholder="https://…"></label><button type="submit">Apply to selected territory</button></form>
+          <button id="export" type="button">Export territories</button><label class="import-label">Import territories <input id="import" type="file" accept=".json,.geojson,application/json,application/geo+json"></label><p id="editor-status" role="status"></p>
+        </section>
+        <p id="status" role="status">Loading atlas…</p><button id="retry" type="button" hidden>Reload atlas</button>
+      </div>
+    </aside>
+  </main>
+  <noscript>Enable JavaScript to explore the atlas. <a href="../">Return to the homepage.</a></noscript>
+</body>
+</html>

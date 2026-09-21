@@ -1,87 +1,651 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Your World | A worldbuilding project</title>
-  <meta name="description" content="Discover Your World: its stories, factions, art, and interactive atlas.">
-  <meta name="theme-color" content="#14110d">
-  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="vendor/leaflet.css">
-  <link rel="stylesheet" href="styles.css">
-  <script defer src="vendor/leaflet.js"></script>
-  <script defer src="site.js"></script>
-  <script defer src="map.js"></script>
-</head>
-<body id="top">
-  <a class="skip-link" href="#main">Skip to content</a>
-  <div class="ribbon">A world of stories, waiting to be written</div>
-  <header>
-    <nav class="wrap nav" aria-label="Primary">
-      <a class="brand" href="#top"><span aria-hidden="true">✦</span> YOUR WORLD <small>A WORLDBUILDING PROJECT</small></a>
-      <div class="menu-box">
-        <button id="menu-toggle" class="menu-toggle" aria-expanded="false" aria-controls="nav-links" hidden>Menu <span aria-hidden="true">☰</span></button>
-        <ul id="nav-links" class="nav-links">
-          <li><a href="#world">The world</a></li><li><a href="#factions">Factions</a></li><li><a href="#gallery">Gallery</a></li><li><a href="#world-map">World map</a></li><li><a href="#projects">Projects</a></li><li><a href="#connect">Connect</a></li>
-        </ul>
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Worldbuilding Website Template | Atlas, stories &amp; factions</title><meta name="description" content="An MIT worldbuilding website template by Vincent De Nil, featuring example content from American Kingdoms and interactive Leaflet atlases."><meta name="theme-color" content="#14110d"><link rel="canonical" href="https://vincentdn.github.io/worldbuilding-website-template/"><link rel="icon" href="assets/favicon.svg"><link rel="stylesheet" href="styles.css"><meta property="og:type" content="website"><meta property="og:title" content="Worldbuilding Website Template"><meta property="og:description" content="An MIT worldbuilding website template by Vincent De Nil, featuring example content from American Kingdoms and interactive Leaflet atlases."><meta property="og:url" content="https://vincentdn.github.io/worldbuilding-website-template/"><meta property="og:image" content="https://vincentdn.github.io/worldbuilding-website-template/examples/american-kingdoms/assets/washington-throne.jpg"><meta property="og:site_name" content="Worldbuilding Website Template"><meta name="twitter:card" content="summary_large_image"><script defer src="site.js"></script><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://vincentdenil.com/#vincent",
+      "name": "Vincent De Nil",
+      "url": "https://vincentdenil.com/"
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://vincentdn.github.io/worldbuilding-website-template/#website",
+      "url": "https://vincentdn.github.io/worldbuilding-website-template/",
+      "name": "Worldbuilding Website Template",
+      "creator": {
+        "@id": "https://vincentdenil.com/#vincent"
+      }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://vincentdn.github.io/worldbuilding-website-template/#webpage",
+      "url": "https://vincentdn.github.io/worldbuilding-website-template/",
+      "name": "Worldbuilding Website Template",
+      "description": "An MIT worldbuilding website template by Vincent De Nil, featuring example content from American Kingdoms and interactive Leaflet atlases.",
+      "isPartOf": {
+        "@id": "https://vincentdn.github.io/worldbuilding-website-template/#website"
+      },
+      "about": {
+        "@id": "https://vincentdn.github.io/worldbuilding-website-template/#software"
+      },
+      "relatedLink": [
+        "https://vincentdenil.com/",
+        "https://dividedstates-project.com/",
+        "https://flagmaker-print.com/",
+        "https://american-kingdoms.com/"
+      ]
+    },
+    {
+      "@type": "SoftwareSourceCode",
+      "@id": "https://vincentdn.github.io/worldbuilding-website-template/#software",
+      "name": "Worldbuilding Website Template",
+      "description": "An MIT worldbuilding website template by Vincent De Nil, featuring example content from American Kingdoms and interactive Leaflet atlases.",
+      "codeRepository": "https://github.com/VincentDN/worldbuilding-website-template",
+      "programmingLanguage": [
+        "HTML",
+        "CSS",
+        "JavaScript"
+      ],
+      "license": "https://github.com/VincentDN/worldbuilding-website-template/blob/main/LICENSE",
+      "author": {
+        "@id": "https://vincentdenil.com/#vincent"
+      },
+      "isBasedOn": {
+        "@type": "WebSite",
+        "url": "https://american-kingdoms.com/",
+        "name": "American Kingdoms"
+      }
+    }
+  ]
+}</script></head><body>
+
+<div class="ribbon">Worldbuilding website template · American Kingdoms content used as placeholder and example</div><header>
+  <nav class="wrap nav" aria-label="Primary">
+    <a class="brand template-brand" href="#top">✦ YOUR WORLD</a><div class="menu-box">
+      <button class="burger" id="burger" aria-label="Menu" aria-expanded="false">
+        <svg viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 6h18M3 12h18M3 18h18"></path></svg>
+      </button>
+      <ul class="nav-links" id="navLinks"><li><a href="#world">Lore</a></li><li><a href="#factions">Factions</a></li><li><a href="#gallery">Gallery</a></li><li><a href="world-map/">World map</a></li><li><a href="#explore">Projects</a></li><li><a href="#team">Team</a></li><li><a href="#connect">Connect</a></li></ul></div>
+  </nav>
+</header>
+
+<section class="hero" id="top">
+  <picture class="hero-bg">
+    <source media="(max-width:720px)" srcset="examples/american-kingdoms/assets/hero-oath-mobile.jpg" width="1920" height="1855">
+    <img src="examples/american-kingdoms/assets/hero-union-court.jpg" alt="American Kingdoms example: King Arthur Washington enthroned before the assembled knights of the Union" fetchpriority="high">
+  </source></picture>
+  <div class="wrap hero-inner">
+    <div class="hero-copy">
+      <h1>Your world. Your stories. A place to bring them together.</h1>
+      <p class="lede">American Kingdoms content used as placeholder and example. Replace this material with your own project content.</p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="#connect" title="Example destination from American Kingdoms; replace for your own project">Join the Newsletter</a>
+        <a class="btn btn-ghost" href="#connect">Connect with Us</a>
       </div>
-    </nav>
-  </header>
-  <main id="main">
-    <!-- Replace the text and SVG placeholders with your own setting and art. -->
-    <section class="hero" aria-labelledby="hero-title">
-      <div class="hero-bg"><img src="assets/landscape.svg" alt="" width="1200" height="800"></div>
-      <div class="wrap hero-inner"><div class="hero-copy">
-        <p class="eyebrow">A new world begins here</p>
-        <h1 id="hero-title">What if the world had taken a different path?</h1>
-        <p class="lede">Introduce your setting here. A forgotten age, an imagined future, or a history that never was. Set the scene, hint at the conflict, and invite your readers into the world you are building.</p>
-        <div class="actions"><a class="btn primary" href="#world">Discover the world</a><a class="btn" href="#world-map">Explore the map</a></div>
-      </div></div>
-    </section>
-    <section class="section" id="world" aria-labelledby="world-title">
-      <div class="wrap"><div class="divider" aria-hidden="true">✦</div><div class="split">
-        <figure class="portrait"><img src="assets/portrait.svg" alt="Placeholder for a character or scene from your world" loading="lazy" width="1200" height="800"></figure>
-        <div><p class="eyebrow">The premise</p><h2 id="world-title">Every world has a beginning.</h2><blockquote>“Place a defining quote, prophecy, or passage from your world here.”</blockquote><p>Describe the moment that shaped your setting. What changed? Who holds power? What is about to happen?</p><p>Use this space for a brief introduction to the history, themes, and stakes. Give visitors a reason to keep exploring.</p></div>
-      </div></div>
-    </section>
-    <section class="section parchment" id="factions" aria-labelledby="factions-title">
-      <div class="wrap"><div class="section-heading"><div><p class="eyebrow">People &amp; powers</p><h2 id="factions-title">Factions</h2><p>Introduce the cultures, houses, or movements that shape your world.</p></div><div class="carousel-controls" hidden><button type="button" data-slide="-1" aria-label="Previous factions">←</button><button type="button" data-slide="1" aria-label="Next factions">→</button></div></div>
-        <div class="faction-track" tabindex="0" aria-label="Faction cards; scroll horizontally">
-          <article class="faction-card"><img src="assets/faction-1.svg" alt="Faction one artwork placeholder" loading="lazy" width="1200" height="800"><div><p class="eyebrow">01 / A people</p><h3>Faction name</h3><p>Describe their homeland, beliefs, and place in the world. What do they want, and what stands in their way?</p></div></article>
-          <article class="faction-card"><img src="assets/faction-2.svg" alt="Faction two artwork placeholder" loading="lazy" width="1200" height="800"><div><p class="eyebrow">02 / A power</p><h3>Faction name</h3><p>Introduce a rival realm or an uneasy ally. Give readers a glimpse of its customs and ambitions.</p></div></article>
-          <article class="faction-card"><img src="assets/faction-3.svg" alt="Faction three artwork placeholder" loading="lazy" width="1200" height="800"><div><p class="eyebrow">03 / A movement</p><h3>Faction name</h3><p>Who challenges the established order? Share the ideals that hold this group together.</p></div></article>
-          <article class="faction-card"><img src="assets/faction-4.svg" alt="Faction four artwork placeholder" loading="lazy" width="1200" height="800"><div><p class="eyebrow">04 / A mystery</p><h3>Faction name</h3><p>Introduce a distant culture, a forgotten order, or a people whose story has yet to unfold.</p></div></article>
+    </div>
+  </div>
+</section>
+
+<section class="plate world sec-pad" id="world">
+  <div class="wrap">
+    <div class="divider reveal"><i>✦</i></div>
+    <div class="world-grid" style="margin-top:clamp(2.5rem,5vw,4rem)">
+      <figure class="portrait reveal" style="margin:0">
+        <img src="examples/american-kingdoms/assets/washington-throne.jpg" alt="American Kingdoms example: King Arthur Washington upon his throne">
+      </figure>
+      <div class="reveal">
+        <blockquote>“A place for a defining quotation from your world.”</blockquote><p>American Kingdoms content used as placeholder and example. Introduce your setting, its history, and the conflict at the heart of your world.</p>
+        <p>American Kingdoms content used as placeholder and example. Introduce your setting, its history, and the conflict at the heart of your world.</p>
+        <p>American Kingdoms content used as placeholder and example. Introduce your setting, its history, and the conflict at the heart of your world.</p>
+        <p>American Kingdoms content used as placeholder and example. Introduce your setting, its history, and the conflict at the heart of your world.</p>
+      </div>
+    </div>
+
+    <div class="video-wrap video-facade" data-embed="https://www.youtube-nocookie.com/embed/UHmGl_GlmXY?autoplay=1&amp;rel=0" data-title="Example: A Medieval America? American Kingdoms project trailer" role="button" tabindex="0" aria-label="Example: Play the American Kingdoms project trailer" style="margin-top:clamp(2.5rem,5vw,4rem)">
+      <img src="examples/american-kingdoms/assets/videos/trailer.webp" alt="American Kingdoms example: American Kingdoms project trailer thumbnail" loading="lazy">
+      <div class="play">
+        <span class="disc"><svg viewbox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span>
+        <span>Watch the Project Trailer</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="factions sec-pad" id="factions">
+  <div class="wrap">
+    <div class="team-head">
+      <div>
+        <div class="section-head"><h2>Factions</h2></div>
+        <p class="factions-intro">American Kingdoms content used as placeholder and example. Describe your factions, their ambitions, and the cultures that shape them.</p>
+      </div>
+      <div class="team-controls">
+        <button class="tc-btn" id="facPrev" aria-label="Previous factions"><svg viewbox="0 0 24 24"><path d="M15 5l-7 7 7 7"></path></svg></button>
+        <button class="tc-btn" id="facNext" aria-label="Next factions"><svg viewbox="0 0 24 24"><path d="M9 5l7 7-7 7"></path></svg></button>
+      </div>
+    </div>
+    <div class="faction-track" id="factionTrack" tabindex="0" aria-label="Factions, scroll horizontally">
+      <article class="faction-card">
+        <div class="fc-photo"><img src="examples/american-kingdoms/assets/editorial/faction-union.webp" alt="American Kingdoms example: Knights of the Union assembled beneath American banners" loading="lazy"></div>
+        <div class="fc-body">
+          <h3>The Union</h3>
+          <p>American Kingdoms content used as placeholder and example. Describe your factions, their ambitions, and the cultures that shape them.</p>
+          <a class="readlink" href="https://americankingdoms.miraheze.org/wiki/The_Union" title="Example destination from American Kingdoms; replace for your own project">Read the Wiki article</a>
+        </div>
+      </article>
+      <article class="faction-card">
+        <div class="fc-photo"><img src="examples/american-kingdoms/assets/factions/natives-card.webp" alt="American Kingdoms example: Native travelers overlook a desert landscape of mesas and canyons" loading="lazy"></div>
+        <div class="fc-body">
+          <h3>The Natives</h3>
+          <p>American Kingdoms content used as placeholder and example. Describe your factions, their ambitions, and the cultures that shape them.</p>
+          <a class="readlink" href="https://americankingdoms.miraheze.org/wiki/Natives" title="Example destination from American Kingdoms; replace for your own project">Read the Wiki article</a>
+        </div>
+      </article>
+      <article class="faction-card">
+        <div class="fc-photo"><img src="examples/american-kingdoms/assets/editorial/faction-redcloaks.webp" alt="American Kingdoms example: Redcloak knights marching beneath the royal banner" loading="lazy"></div>
+        <div class="fc-body">
+          <h3>The Redcloaks</h3>
+          <p>American Kingdoms content used as placeholder and example. Describe your factions, their ambitions, and the cultures that shape them.</p>
+          <a class="readlink" href="https://americankingdoms.miraheze.org/wiki/Redcloaks" title="Example destination from American Kingdoms; replace for your own project">Read the Wiki article</a>
+        </div>
+      </article>
+      <article class="faction-card">
+        <div class="fc-photo"><img src="examples/american-kingdoms/assets/factions/southern-kingdoms-card.webp" alt="American Kingdoms example: A Southern Kingdoms knight leads a cavalry charge beneath heraldic banners" loading="lazy"></div>
+        <div class="fc-body">
+          <h3>The Southern Kingdoms</h3>
+          <p>American Kingdoms content used as placeholder and example. Describe your factions, their ambitions, and the cultures that shape them.</p>
+          <a class="readlink" href="https://americankingdoms.miraheze.org/wiki/Southern_Appalachia" title="Example destination from American Kingdoms; replace for your own project">Read the Wiki article</a>
+        </div>
+      </article>
+      <article class="faction-card">
+        <div class="fc-photo"><img src="examples/american-kingdoms/assets/factions/vinland-card.webp" alt="American Kingdoms example: Vinlandian warriors assemble before a northern hill fortress" loading="lazy"></div>
+        <div class="fc-body">
+          <h3>Vinland</h3>
+          <p>American Kingdoms content used as placeholder and example. Describe your factions, their ambitions, and the cultures that shape them.</p>
+          <a class="readlink" href="https://americankingdoms.miraheze.org/wiki/Vinland_Freehold" title="Example destination from American Kingdoms; replace for your own project">Read the Wiki article</a>
+        </div>
+      </article>
+      <article class="faction-card">
+        <div class="fc-photo"><img src="examples/american-kingdoms/assets/factions/free-cities-card.webp" alt="American Kingdoms example: Merchants gather beneath the banner of a Free City market" loading="lazy"></div>
+        <div class="fc-body">
+          <h3>The Free Cities</h3>
+          <p>American Kingdoms content used as placeholder and example. Describe your factions, their ambitions, and the cultures that shape them.</p>
+          <a class="readlink" href="https://americankingdoms.miraheze.org/wiki/The_Atlantic_League" title="Example destination from American Kingdoms; replace for your own project">Read the Wiki article</a>
+        </div>
+      </article>
+      <article class="faction-card">
+        <div class="fc-photo"><img src="examples/american-kingdoms/assets/factions/dragon-coast-card.webp" alt="American Kingdoms example: A fortified Dragon Coast city rises above a busy harbour" loading="lazy"></div>
+        <div class="fc-body">
+          <h3>Dragon Coast</h3>
+          <p>American Kingdoms content used as placeholder and example. Describe your factions, their ambitions, and the cultures that shape them.</p>
+          <a class="readlink" href="https://americankingdoms.miraheze.org/wiki/Chinese_California" title="Example destination from American Kingdoms; replace for your own project">Read the Wiki article</a>
+        </div>
+      </article>
+      <article class="faction-card">
+        <div class="fc-photo"><img src="examples/american-kingdoms/assets/editorial/faction-roman-settlers.webp" alt="American Kingdoms example: A Roman mariner beholds the American coast at sunrise" loading="lazy"></div>
+        <div class="fc-body">
+          <h3>The Roman Settlers</h3>
+          <p>American Kingdoms content used as placeholder and example. Describe your factions, their ambitions, and the cultures that shape them.</p>
+          <a class="readlink" href="https://americankingdoms.miraheze.org/wiki/The_Roman_States" title="Example destination from American Kingdoms; replace for your own project">Read the Wiki article</a>
+        </div>
+      </article>
+    </div>
+    <aside class="featured-wiki" aria-labelledby="featured-wiki-title">
+      <h3 class="featured-wiki-label" id="featured-wiki-title">Featured Wiki Articles</h3>
+      <div class="featured-wiki-list">
+        <article class="featured-wiki-item">
+          <span class="featured-wiki-arrow" aria-hidden="true">↗</span>
+          <div>
+            <h3><a href="https://americankingdoms.miraheze.org/wiki/The_Sidennic_League_(the_roman_merchant_republics_of_cuba)" title="Example destination from American Kingdoms; replace for your own project">The Sidennic League</a></h3>
+            <p>American Kingdoms content used as placeholder and example. Describe your factions, their ambitions, and the cultures that shape them.</p>
+          </div>
+        </article>
+        <article class="featured-wiki-item">
+          <span class="featured-wiki-arrow" aria-hidden="true">↗</span>
+          <div>
+            <h3><a href="https://americankingdoms.miraheze.org/wiki/The_Pueblo_Kingdom" title="Example destination from American Kingdoms; replace for your own project">The Pueblo Kingdom</a></h3>
+            <p>American Kingdoms content used as placeholder and example. Describe your factions, their ambitions, and the cultures that shape them.</p>
+          </div>
+        </article>
+        <article class="featured-wiki-item">
+          <span class="featured-wiki-arrow" aria-hidden="true">↗</span>
+          <div>
+            <h3><a href="https://americankingdoms.miraheze.org/wiki/New_France" title="Example destination from American Kingdoms; replace for your own project">New France</a></h3>
+            <p>American Kingdoms content used as placeholder and example. Describe your factions, their ambitions, and the cultures that shape them.</p>
+          </div>
+        </article>
+        <article class="featured-wiki-item">
+          <span class="featured-wiki-arrow" aria-hidden="true">↗</span>
+          <div>
+            <h3><a href="https://americankingdoms.miraheze.org/wiki/The_Shining_Republic_of_Mahatamus" title="Example destination from American Kingdoms; replace for your own project">The Shining Republic of Mahatamus</a></h3>
+            <p>American Kingdoms content used as placeholder and example. Describe your factions, their ambitions, and the cultures that shape them.</p>
+          </div>
+        </article>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<section class="plate sec-pad" id="gallery">
+  <div class="wrap">
+    <div class="section-head reveal"><h2>Gallery</h2><p class="gallery-subtext">American Kingdoms content used as placeholder and example. Use this space for your own artwork, concepts, and video stories.</p></div>
+    <div class="gallery-shell">
+    <div class="gallery-grid" id="gallery-mosaic">
+      <figure class="g-wide reveal"><img src="examples/american-kingdoms/assets/editorial/gallery-american-siege.webp" alt="American Kingdoms example: American knights raise the Union banner over a captured castle" loading="lazy"></figure>
+      <figure class="g-tall reveal"><img src="examples/american-kingdoms/assets/editorial/gallery-king-washington.webp" alt="American Kingdoms example: King Washington holds the Union banner as a knight presents the Constitution" loading="lazy"></figure>
+      <figure class="g-third reveal"><img src="examples/american-kingdoms/assets/editorial/gallery-bunker-hill-tapestry.webp" alt="American Kingdoms example: A medieval tapestry interpretation of the Battle of Bunker Hill" loading="lazy"></figure>
+      <figure class="g-third reveal"><img src="examples/american-kingdoms/assets/editorial/gallery-washington-crossing.webp" alt="American Kingdoms example: King Washington and his knights cross the Delaware" loading="lazy"></figure>
+      <figure class="g-third reveal"><img src="examples/american-kingdoms/assets/editorial/gallery-roman-landing.webp" alt="American Kingdoms example: Roman mariners land on an American shore as Native scouts observe" loading="lazy"></figure>
+      <figure class="g-landscape reveal"><img src="examples/american-kingdoms/assets/editorial/gallery-union-triumph-clean.webp" alt="American Kingdoms example: Triumph of the Union Knights: a mounted knight raises his fist during a procession through streets hung with American banners" loading="lazy" width="1920" height="1080"></figure>
+      <figure class="g-landscape reveal"><img src="examples/american-kingdoms/assets/editorial/gallery-union-knights.webp" alt="American Kingdoms example: Armoured Union knights assemble with heraldic shields and American banners" loading="lazy" width="1920" height="1080"></figure>
+      <figure class="g-third reveal"><img src="examples/american-kingdoms/assets/editorial/gallery-union-court.webp" alt="American Kingdoms example: A Union ruler presides over a medieval court beneath red-and-white banners" loading="lazy" width="1920" height="1080"></figure>
+      <figure class="g-third reveal"><img src="examples/american-kingdoms/assets/editorial/gallery-union-windmills.webp" alt="American Kingdoms example: Windmills and sailing boats line a medieval American waterway" loading="lazy" width="1920" height="1080"></figure>
+      <figure class="g-third reveal"><img src="examples/american-kingdoms/assets/editorial/gallery-union-harbor.webp" alt="American Kingdoms example: A crowned statue bearing a shield overlooks a fortified American harbor" loading="lazy" width="1920" height="1080"></figure>
+      <figure class="g-landscape gallery-extra"><img src="examples/american-kingdoms/assets/editorial/gallery-argonauts-searching-for-a-crew-thumb.webp" data-full="examples/american-kingdoms/assets/editorial/gallery-argonauts-searching-for-a-crew.webp" alt="American Kingdoms example: A bearded storyteller presents a map to a crowd while searching for a crew" loading="lazy" decoding="async" width="3840" height="2160"></figure>
+      <figure class="g-landscape gallery-extra g-storyboard"><img src="examples/american-kingdoms/assets/editorial/gallery-argonauts-crew-storyboards-thumb.webp" data-full="examples/american-kingdoms/assets/editorial/gallery-argonauts-crew-storyboards.webp" alt="American Kingdoms example: Three grayscale storyboard studies of a storyteller recruiting a crew" loading="lazy" decoding="async" width="1920" height="3440"></figure>
+      <figure class="g-landscape gallery-extra"><img src="examples/american-kingdoms/assets/editorial/gallery-argonauts-offering-thumb.webp" data-full="examples/american-kingdoms/assets/editorial/gallery-argonauts-offering.webp" alt="American Kingdoms example: A traveller kneels beside a basket of gifts before a feather-cloaked figure" loading="lazy" decoding="async" width="2547" height="1435"></figure>
+      <figure class="g-landscape gallery-extra"><img src="examples/american-kingdoms/assets/editorial/gallery-argonauts-storm-thumb.webp" data-full="examples/american-kingdoms/assets/editorial/gallery-argonauts-storm.webp" alt="American Kingdoms example: A mariner raises his arms aboard a ship surrounded by lightning and storm waves" loading="lazy" decoding="async" width="3839" height="2159"></figure>
+      <figure class="g-landscape gallery-extra"><img src="examples/american-kingdoms/assets/editorial/gallery-library-reading-study-thumb.webp" data-full="examples/american-kingdoms/assets/editorial/gallery-library-reading-study.webp" alt="American Kingdoms example: Grayscale concept study of a bespectacled man reading in a library" loading="lazy" decoding="async" width="3839" height="2159"></figure>
+      <figure class="g-landscape gallery-extra"><img src="examples/american-kingdoms/assets/editorial/gallery-library-typewriter-study-thumb.webp" data-full="examples/american-kingdoms/assets/editorial/gallery-library-typewriter-study.webp" alt="American Kingdoms example: Grayscale concept study of a writer working at a typewriter in a library" loading="lazy" decoding="async" width="3839" height="2159"></figure>
+      <figure class="g-landscape gallery-extra"><img src="examples/american-kingdoms/assets/editorial/gallery-argonauts-sailing-and-fishing-thumb.webp" data-full="examples/american-kingdoms/assets/editorial/gallery-argonauts-sailing-and-fishing.webp" alt="American Kingdoms example: Mariners fish from a sailing ship as fish leap through turquoise waves" loading="lazy" decoding="async" width="3839" height="2159"></figure>
+      <figure class="g-landscape gallery-extra g-storyboard"><img src="examples/american-kingdoms/assets/editorial/gallery-argonauts-sailing-storyboards-thumb.webp" data-full="examples/american-kingdoms/assets/editorial/gallery-argonauts-sailing-storyboards.webp" alt="American Kingdoms example: Three grayscale storyboard studies of mariners fishing from a sailing ship" loading="lazy" decoding="async" width="1188" height="2134"></figure>
+      <figure class="g-landscape gallery-extra"><img src="examples/american-kingdoms/assets/editorial/gallery-argonauts-arrival-in-america-thumb.webp" data-full="examples/american-kingdoms/assets/editorial/gallery-argonauts-arrival-in-america.webp" alt="American Kingdoms example: Mariners haul their ship onto an American beach as Native observers watch from the trees" loading="lazy" decoding="async" width="1920" height="1080"></figure>
+      <figure class="g-landscape gallery-extra g-storyboard"><img src="examples/american-kingdoms/assets/editorial/gallery-argonauts-arrival-storyboards-thumb.webp" data-full="examples/american-kingdoms/assets/editorial/gallery-argonauts-arrival-storyboards.webp" alt="American Kingdoms example: Three grayscale storyboard studies of a ship arriving on an American shore" loading="lazy" decoding="async" width="1275" height="2159"></figure>
+      <figure class="g-landscape gallery-extra"><img src="examples/american-kingdoms/assets/editorial/gallery-argonauts-loading-the-ship-thumb.webp" data-full="examples/american-kingdoms/assets/editorial/gallery-argonauts-loading-the-ship.webp" alt="American Kingdoms example: Crew members carry barrels and supplies aboard a ship in golden sunlight" loading="lazy" decoding="async" width="1920" height="1080"></figure>
+      <figure class="g-landscape gallery-extra"><img src="examples/american-kingdoms/assets/editorial/gallery-argonauts-starving-on-deck-thumb.webp" data-full="examples/american-kingdoms/assets/editorial/gallery-argonauts-starving-on-deck.webp" alt="American Kingdoms example: Exhausted and starving mariners lie on the deck during their ocean crossing" loading="lazy" decoding="async" width="1920" height="1080"></figure>
+      <figure class="g-landscape gallery-extra g-storyboard"><img src="examples/american-kingdoms/assets/editorial/gallery-argonauts-patreon-cameos-thumb.webp" data-full="examples/american-kingdoms/assets/editorial/gallery-argonauts-patreon-cameos.webp" alt="American Kingdoms example: Patreon cameo artwork featuring INQ.HAWKE and Ian Dunnet among the crew loading a ship" loading="lazy" decoding="async" width="1080" height="1080"></figure>
+      <figure class="g-landscape gallery-extra"><img src="examples/american-kingdoms/assets/editorial/gallery-argonauts-roman-expedition-thumbnail-thumb.webp" data-full="examples/american-kingdoms/assets/editorial/gallery-argonauts-roman-expedition-thumbnail.webp" alt="American Kingdoms example: American Kingdoms short story artwork of a Roman expedition, titled What if the Romans discovered America?" loading="lazy" decoding="async" width="3840" height="2160"></figure>
+      <figure class="g-landscape gallery-extra"><img src="examples/american-kingdoms/assets/editorial/gallery-argonauts-roman-encounter-mosaic-thumb.webp" data-full="examples/american-kingdoms/assets/editorial/gallery-argonauts-roman-encounter-mosaic.webp" alt="American Kingdoms example: Mosaic-style American Kingdoms short story artwork of Romans meeting Native Americans, titled What if the Romans discovered America?" loading="lazy" decoding="async" width="1920" height="1080"></figure>
+    </div>
+    <button class="gallery-reveal" type="button" aria-controls="gallery-mosaic" aria-expanded="false" hidden>See more</button>
+    </div>
+    <div class="shorts-collection">
+      <div class="team-head">
+        <div>
+          <h3>Example short videos</h3><p class="shorts-intro">American Kingdoms content used as placeholder and example. Use this space for your own artwork, concepts, and video stories.</p>
+        </div>
+        <div class="team-controls">
+          <button class="tc-btn" id="shortsPrev" aria-label="Example: Previous American Kingdoms Shorts"><svg viewbox="0 0 24 24"><path d="M15 5l-7 7 7 7"></path></svg></button>
+          <button class="tc-btn" id="shortsNext" aria-label="Example: Next American Kingdoms Shorts"><svg viewbox="0 0 24 24"><path d="M9 5l7 7-7 7"></path></svg></button>
         </div>
       </div>
-    </section>
-    <section class="section" id="gallery" aria-labelledby="gallery-title">
-      <div class="wrap"><p class="eyebrow">A glimpse inside</p><h2 id="gallery-title">Art &amp; stories</h2><p>Make room for your landscapes, characters, and concepts.</p>
-        <div class="gallery-grid">
-          <figure><a href="assets/landscape.svg" data-gallery><img src="assets/landscape.svg" alt="Landscape artwork placeholder" loading="lazy" width="1200" height="800"></a><figcaption>Landscape / Your caption here</figcaption></figure>
-          <figure><a href="assets/portrait.svg" data-gallery><img src="assets/portrait.svg" alt="Character artwork placeholder" loading="lazy" width="1200" height="800"></a><figcaption>Character / Your caption here</figcaption></figure>
-          <figure><a href="assets/faction-2.svg" data-gallery><img src="assets/faction-2.svg" alt="Concept artwork placeholder" loading="lazy" width="1200" height="800"></a><figcaption>Concept / Your caption here</figcaption></figure>
+      <div class="shorts-track" id="shortsTrack" tabindex="0" aria-label="Example: American Kingdoms Shorts, scroll horizontally">
+        <figure class="short-card">
+          <div class="short-video video-facade" data-embed="https://www.youtube-nocookie.com/embed/7jYEbhGriWw?autoplay=1&amp;rel=0" data-title="Example: Aztec Empire and Mayan States in American Kingdoms" role="button" tabindex="0" aria-label="Example: Play Aztec Empire and Mayan States in American Kingdoms">
+            <img src="examples/american-kingdoms/assets/videos/aztec-mayan-states.webp" alt="American Kingdoms example: Aztec Empire and Mayan States in American Kingdoms Short thumbnail" loading="lazy">
+            <div class="play"><span class="disc"><svg viewbox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span><span>Play Short</span></div>
+          </div>
+          <figcaption>Aztec Empire &amp; Mayan States</figcaption>
+        </figure>
+        <figure class="short-card">
+          <div class="short-video video-facade" data-embed="https://www.youtube-nocookie.com/embed/Sy3I4jNOwUo?autoplay=1&amp;rel=0" data-title="Example: The Natives and First Nations in American Kingdoms" role="button" tabindex="0" aria-label="Example: Play The Natives and First Nations in American Kingdoms">
+            <img src="examples/american-kingdoms/assets/videos/natives.webp" alt="American Kingdoms example: The Natives and First Nations in American Kingdoms Short thumbnail" loading="lazy">
+            <div class="play"><span class="disc"><svg viewbox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span><span>Play Short</span></div>
+          </div>
+          <figcaption>The Natives and First Nations</figcaption>
+        </figure>
+        <figure class="short-card">
+          <div class="short-video video-facade" data-embed="https://www.youtube-nocookie.com/embed/EpDgwuHZLzc?autoplay=1&amp;rel=0" data-title="Example: What if the Chinese had colonized California? The Dragon Coast in American Kingdoms" role="button" tabindex="0" aria-label="Example: Play The Dragon Coast in American Kingdoms">
+            <img src="examples/american-kingdoms/assets/videos/dragon-coast.webp" alt="American Kingdoms example: The Dragon Coast in American Kingdoms Short thumbnail" loading="lazy">
+            <div class="play"><span class="disc"><svg viewbox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span><span>Play Short</span></div>
+          </div>
+          <figcaption>The Dragon Coast</figcaption>
+        </figure>
+        <figure class="short-card">
+          <div class="short-video video-facade" data-embed="https://www.youtube-nocookie.com/embed/sibNwq_sSPw?autoplay=1&amp;rel=0" data-title="What if the United States had been founded in 1377?" role="button" tabindex="0" aria-label="Play What if the United States had been founded in 1377?">
+            <img src="examples/american-kingdoms/assets/videos/founded-1377.webp" alt="American Kingdoms example: What if the United States had been founded in 1377 Short thumbnail" loading="lazy">
+            <div class="play"><span class="disc"><svg viewbox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span><span>Play Short</span></div>
+          </div>
+          <figcaption>What if the US had been founded in 1377?</figcaption>
+        </figure>
+        <figure class="short-card">
+          <div class="short-video video-facade" data-embed="https://www.youtube-nocookie.com/embed/DKZL38HhDdI?autoplay=1&amp;rel=0" data-title="Example: The American Kingdoms Wiki and Map" role="button" tabindex="0" aria-label="Example: Play The American Kingdoms Wiki and Map">
+            <img src="examples/american-kingdoms/assets/videos/wiki-map.webp" alt="American Kingdoms example: The American Kingdoms Wiki and Map Short thumbnail" loading="lazy">
+            <div class="play"><span class="disc"><svg viewbox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span><span>Play Short</span></div>
+          </div>
+          <figcaption>The American Kingdoms Wiki and Map</figcaption>
+        </figure>
+        <figure class="short-card">
+          <div class="short-video video-facade" data-embed="https://www.youtube-nocookie.com/embed/U_uiPbKVKrA?autoplay=1&amp;rel=0" data-title="Example: A Medieval USA? The American Kingdoms Project Explained" role="button" tabindex="0" aria-label="Example: Play The American Kingdoms Project Explained">
+            <img src="examples/american-kingdoms/assets/videos/project-explained.webp" alt="American Kingdoms example: The American Kingdoms Project Explained Short thumbnail" loading="lazy">
+            <div class="play"><span class="disc"><svg viewbox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span><span>Play Short</span></div>
+          </div>
+          <figcaption>The American Kingdoms Project Explained</figcaption>
+        </figure>
+        <figure class="short-card">
+          <div class="short-video video-facade" data-embed="https://www.youtube-nocookie.com/embed/SKvbsRcEOQ8?autoplay=1&amp;rel=0" data-title="Example: American Kingdoms: The Free State of Virginia" role="button" tabindex="0" aria-label="Play The Free State of Virginia">
+            <img src="examples/american-kingdoms/assets/videos/free-state-virginia.webp" alt="American Kingdoms example: The Free State of Virginia Short thumbnail" loading="lazy">
+            <div class="play"><span class="disc"><svg viewbox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span><span>Play Short</span></div>
+          </div>
+          <figcaption>The Free State of Virginia</figcaption>
+        </figure>
+        <figure class="short-card">
+          <div class="short-video video-facade" data-embed="https://www.youtube-nocookie.com/embed/Dw9wnYF_V98?autoplay=1&amp;rel=0" data-title="Example: American Kingdoms: An Arthurian Legend for America" role="button" tabindex="0" aria-label="Play An Arthurian Legend for America">
+            <img src="examples/american-kingdoms/assets/videos/arthurian-legend.webp" alt="American Kingdoms example: An Arthurian Legend for America Short thumbnail" loading="lazy">
+            <div class="play"><span class="disc"><svg viewbox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span><span>Play Short</span></div>
+          </div>
+          <figcaption>An Arthurian Legend for America</figcaption>
+        </figure>
+        <figure class="short-card">
+          <div class="short-video video-facade" data-embed="https://www.youtube-nocookie.com/embed/V4iTrJqi6xI?autoplay=1&amp;rel=0" data-title="Example: American Kingdoms community wiki, writing contest and Patreon cameos" role="button" tabindex="0" aria-label="Example: Play American Kingdoms community wiki, writing contest and Patreon cameos">
+            <img src="examples/american-kingdoms/assets/videos/patreon-wiki.webp" alt="American Kingdoms example: American Kingdoms community wiki and Patreon Short thumbnail" loading="lazy">
+            <div class="play"><span class="disc"><svg viewbox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span><span>Play Short</span></div>
+          </div>
+          <figcaption>Wiki, Writing Contests &amp; Patreon Cameos</figcaption>
+        </figure>
+        <figure class="short-card">
+          <div class="short-video video-facade" data-embed="https://www.youtube-nocookie.com/embed/AE-Qo_51Ey8?autoplay=1&amp;rel=0" data-title="What if America had been settled in the Dark Ages?" role="button" tabindex="0" aria-label="Play What if America had been settled in the Dark Ages?">
+            <img src="examples/american-kingdoms/assets/videos/medieval-america.webp" alt="American Kingdoms example: What if America had been settled in the Dark Ages Short thumbnail" loading="lazy">
+            <div class="play"><span class="disc"><svg viewbox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span><span>Play Short</span></div>
+          </div>
+          <figcaption>America Settled in the Dark Ages</figcaption>
+        </figure>
+        <figure class="short-card">
+          <div class="short-video video-facade" data-embed="https://www.youtube-nocookie.com/embed/yBZl1maYGok?autoplay=1&amp;rel=0" data-title="Example: Alt-History Shows I Want to Make: American Kingdoms" role="button" tabindex="0" aria-label="Example: Play Alt-History Shows I Want to Make: American Kingdoms">
+            <img src="examples/american-kingdoms/assets/videos/show-pitch.webp" alt="American Kingdoms example: Alt-History Shows I Want to Make: American Kingdoms Short thumbnail" loading="lazy">
+            <div class="play"><span class="disc"><svg viewbox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span><span>Play Short</span></div>
+          </div>
+          <figcaption>Alt-History Shows: American Kingdoms</figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="page sec-pad" id="map-promo"><div class="wrap"><div class="section-head"><h2>Choose a world. Explore its stories.</h2></div><p>Two example atlases, with the tools to chart your own.</p><div class="atlas-cards"><a class="atlas-card" href="world-map/?map=europe"><img src="world-map/assets/europe-reference-lite.webp" alt="Kaiserreich / 1914 reference used for the illustrative Europe 1936 atlas" loading="lazy" width="930" height="900"><h3>Kaiserreich · Europe 1936</h3><p>Illustrative borders traced from the supplied reference map.</p><strong>Explore Europe ↗</strong></a><a class="atlas-card" href="world-map/?map=north-america"><img src="world-map/assets/north-america-preview.png" alt="American Kingdoms North America example atlas" loading="lazy" width="1000" height="650"><h3>American Kingdoms · North America 1477</h3><p>Example realms, cultures, and a county-level regional map.</p><strong>Explore North America ↗</strong></a></div><p style="margin-top:2rem"><a href="world-map/?map=blank">Start with the blank world atlas →</a></p></div></section><section class="page prints sec-pad" id="prints">
+  <div class="wrap prints-grid">
+    <figure class="prints-art" tabindex="0" aria-label="Example: American Kingdoms art print; hover or focus to see the holding mockup">
+      <img src="examples/american-kingdoms/assets/manhattan-castle-lifestyle-v2.webp" alt="American Kingdoms example: The framed American Kingdoms exhibition print displayed beside a bookcase and reading chair" loading="lazy">
+      <img class="prints-hover" src="examples/american-kingdoms/assets/manhattan-castle-holding-v2.webp" alt="American Kingdoms example: The American Kingdoms Manhattan Castle exhibition print held in front of a stone wall" loading="lazy">
+    </figure>
+    <div class="prints-copy">
+      <div class="section-head"><h2>Art prints &amp; merchandise</h2></div>
+      <p>American Kingdoms content used as placeholder and example. Showcase your art prints, products, or other ways to support the project.</p>
+      <div class="prints-divider" aria-hidden="true"></div>
+      <div class="prints-actions">
+        <a class="btn btn-dark" href="https://kaisercatcinema.com/products/medieval-american-museum-poster-manhattan-castle-exhibition" title="Example destination from American Kingdoms; replace for your own project">Visit our Merch Shop</a>
+        <a class="btn btn-outline-dark" href="https://kaisercatcinema.com/blogs/dev-diaries/making-of-medieval-american-museum-poster" title="Example destination from American Kingdoms; replace for your own project">Making Of: Medieval American Poster</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="page prints prints--reverse flags sec-pad" id="flags" aria-labelledby="flags-title">
+  <div class="wrap prints-grid">
+    <figure class="prints-art" tabindex="0" aria-label="American Monarchist flag; hover or focus to see the full flag design">
+      <img src="examples/american-kingdoms/assets/american-kingdoms-flag-vincent.webp" alt="American Kingdoms example: Vincent De Nil holding the American Kingdoms Union flag, with its crowned bald eagle and red-and-white stripes" loading="lazy" width="1920" height="1920">
+      <img class="prints-hover" src="examples/american-kingdoms/assets/american-monarchist-flag-flat.webp" alt="American Kingdoms example: Full American Monarchist flag design, with the arms of the Thirteen Colonies arranged around a crowned bald eagle" loading="lazy" width="2074" height="1305">
+    </figure>
+    <div class="prints-copy">
+      <div class="section-head"><h2 id="flags-title">Flags &amp; heraldry</h2></div>
+      <p>American Kingdoms content used as placeholder and example. Present your flags and heraldry, with links to your own store.</p>
+      <div class="prints-divider" aria-hidden="true"></div>
+      <p class="prints-story">American Kingdoms content used as placeholder and example. Present your flags and heraldry, with links to your own store.</p>
+      <div class="prints-actions">
+        <a class="btn btn-dark" href="https://flagmaker-print.com/" title="Example destination from American Kingdoms; replace for your own project">Visit Flagmaker &amp; Print</a>
+        <a class="btn btn-outline-dark" href="https://flagmaker-print.com/collections/alt-history-flags" title="Example destination from American Kingdoms; replace for your own project">Alt-History Flags</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="plate join sec-pad">
+  <div class="wrap">
+    <div class="join-grid">
+      <div class="reveal">
+        <div class="section-head"><h2>Support the project</h2></div>
+        <p>American Kingdoms content used as placeholder and example. Replace this material with your own project content.</p>
+        <p class="muted">American Kingdoms content used as placeholder and example. Replace this material with your own project content.</p>
+        <div class="join-actions">
+          <a class="btn btn-primary" href="https://kaisercatcinema.com/patreon" title="Example destination from American Kingdoms; replace for your own project">Back Us on Patreon</a>
+          <a class="btn btn-ghost" href="https://kaisercatcinema.com/discord" title="Example destination from American Kingdoms; replace for your own project">Join the Discord</a>
         </div>
       </div>
-    </section>
-    <section class="section parchment" id="world-map" aria-labelledby="map-title">
-      <div class="wrap"><p class="eyebrow">The atlas</p><h2 id="map-title">A world waiting to be charted.</h2><p>An unclaimed Earth. Add your own borders, settlements, and stories.</p>
-        <div class="map-toolbar"><button type="button" id="map-reset" disabled>Reset view</button><label><input type="checkbox" id="map-examples" disabled> Show example realm &amp; settlement</label><span>Drag to explore · Use + / − to zoom</span></div>
-        <p id="map-status" role="status">Loading the atlas…</p>
-        <noscript><p>Enable JavaScript to explore the interactive atlas.</p></noscript>
-        <div id="map" role="region" aria-label="Interactive world atlas"></div>
-        <div class="map-index"><h3>Locations &amp; territories</h3><p id="map-empty">No locations or territories have been added yet.</p><ul id="map-locations"></ul></div>
+      <div class="backer-carousel reveal">
+        <div class="backer-carousel-head">
+          <p>American Kingdoms content used as placeholder and example. Replace this material with your own project content.</p>
+          <div class="team-controls backer-controls">
+            <button class="tc-btn" id="backerPrev" aria-label="Previous backer character"><svg viewbox="0 0 24 24"><path d="M15 5l-7 7 7 7"></path></svg></button>
+            <button class="tc-btn" id="backerNext" aria-label="Next backer character"><svg viewbox="0 0 24 24"><path d="M9 5l7 7-7 7"></path></svg></button>
+          </div>
+        </div>
+        <div class="backer-track" id="backerTrack" tabindex="0" aria-label="Patreon backer character artwork, scroll horizontally">
+          <figure class="backer-slide" tabindex="0" role="button" aria-label="Open House Cromter artwork">
+            <img src="examples/american-kingdoms/assets/backers/mayflower-knights.webp" alt="American Kingdoms example: Patreon backer character artwork showing two armoured knights with heraldic shields" loading="lazy" width="1440" height="1440">
+            <figcaption>House Cromter, the Mayflower Knight</figcaption>
+          </figure>
+          <figure class="backer-slide" tabindex="0" role="button" aria-label="Open Lady Brianna Roosevelt artwork">
+            <img src="examples/american-kingdoms/assets/backers/lady-roosevelt.webp" alt="American Kingdoms example: Lady Brianna Roosevelt in armour" loading="lazy">
+            <figcaption>Lady Brianna Roosevelt</figcaption>
+          </figure>
+          <figure class="backer-slide" tabindex="0" role="button" aria-label="Open Greyshark Pirate artwork">
+            <img src="examples/american-kingdoms/assets/backers/greyshark-pirate.webp" alt="American Kingdoms example: Greyshark Pirate character concept" loading="lazy">
+            <figcaption>The Greyshark Pirate</figcaption>
+          </figure>
+          <figure class="backer-slide" tabindex="0" role="button" aria-label="Open Ghoststar and Frost artwork">
+            <img src="examples/american-kingdoms/assets/backers/ghoststar-frost.webp" alt="American Kingdoms example: Patreon backer characters Ghoststar and Frost as Vinland warriors with green shields" loading="lazy" width="1080" height="1080">
+            <figcaption>Ghoststar &amp; Frost</figcaption>
+          </figure>
+          <figure class="backer-slide" tabindex="0" role="button" aria-label="Open Ian Dunnet and Inq. Hawke cameo artwork">
+            <img src="examples/american-kingdoms/assets/backers/argonauts-patreon-cameos.webp" alt="American Kingdoms example: Ian Dunnet and Inq. Hawke appear as Patreon cameos among sailors unloading a ship in the Argonauts artwork" loading="lazy" width="1080" height="1080">
+            <figcaption>Ian Dunnet &amp; Inq. Hawke</figcaption>
+          </figure>
+        </div>
       </div>
-    </section>
-    <section class="section" id="projects" aria-labelledby="projects-title">
-      <div class="wrap"><p class="eyebrow">Beyond the map</p><h2 id="projects-title">Stories from this world</h2><div class="project-grid">
-        <article><span class="eyebrow">01 / Read</span><h3>Your stories</h3><p>Introduce your fiction, lore articles, or campaign journals. Add links when they are ready to share.</p></article>
-        <article><span class="eyebrow">02 / Watch</span><h3>Your project</h3><p>A place for a film, game, development diary, or trailer set in your world.</p></article>
-        <article><span class="eyebrow">03 / Discover</span><h3>Your wiki</h3><p>Point readers toward the deeper history, characters, and details of your setting.</p></article>
-      </div></div>
-    </section>
-    <section class="section parchment" id="connect" aria-labelledby="connect-title"><div class="wrap connect"><p class="eyebrow">Keep the story going</p><h2 id="connect-title">Build something worth exploring.</h2><p>Introduce yourself or your team. Tell visitors how they can follow your work, contribute to the world, or join your community.</p><p class="muted">Your community links and contact details go here.</p></div></section>
-  </main>
-  <footer><div class="wrap"><a class="footer-brand" href="#top">✦ YOUR WORLD</a><p>A worldbuilding website template by Vincent De Nil.</p><p><a href="LICENSE">MIT license</a> · <a href="https://github.com/VincentDN/worldbuilding-website-template">Get the template</a></p></div></footer>
-  <dialog id="lightbox" aria-label="Artwork viewer"><button type="button" id="lightbox-close" aria-label="Close artwork viewer">Close ×</button><img id="lightbox-image" alt=""><p id="lightbox-caption"></p></dialog>
+    </div>
+  </div>
+</section>
+
+<section class="plate about sec-pad">
+  <div class="about-bg"><img src="examples/american-kingdoms/assets/tavern.jpg" alt=""></div>
+  <div class="wrap">
+    <div class="inner reveal">
+      <p>American Kingdoms content used as placeholder and example. Replace this material with your own project content.</p>
+      <div style="margin-top:1.6rem">
+        <a class="btn btn-ghost" href="https://kaisercatcinema.com/about" title="Example destination from American Kingdoms; replace for your own project">About Kaiser Cat Cinema</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="plate team sec-pad" id="team">
+  <div class="wrap">
+    <div class="team-head">
+      <div>
+        <div class="section-head"><h2>Meet the team</h2></div>
+      </div>
+      <div class="team-controls">
+        <button class="tc-btn" id="teamPrev" aria-label="Previous team members"><svg viewbox="0 0 24 24"><path d="M15 5l-7 7 7 7"></path></svg></button>
+        <button class="tc-btn" id="teamNext" aria-label="Next team members"><svg viewbox="0 0 24 24"><path d="M9 5l7 7-7 7"></path></svg></button>
+      </div>
+    </div>
+
+    <div class="team-track" id="teamTrack" tabindex="0" aria-label="Team members, scroll horizontally">
+
+      <article class="member">
+        <div class="photo"><img src="examples/american-kingdoms/assets/team/vincent.jpg" alt="American Kingdoms example: Vincent De Nil" loading="lazy"></div>
+        <div class="m-body">
+          <span class="m-role">Founder &amp; Art Director</span>
+          <h3>Vincent De Nil</h3>
+          <p>American Kingdoms content used as placeholder and example. Introduce the people who bring your world to life.</p>
+          <div class="m-links">
+            <a href="https://vincentdenil.com/" title="Example destination from American Kingdoms; replace for your own project">vincentdenil.com ↗</a>
+            <a href="https://www.linkedin.com/in/vincentdn/" title="Example destination from American Kingdoms; replace for your own project">LinkedIn ↗</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="member">
+        <div class="photo"><img src="examples/american-kingdoms/assets/team/jordan.jpg" alt="American Kingdoms example: Jordan Penelle" loading="lazy"></div>
+        <div class="m-body">
+          <span class="m-role">Director</span>
+          <h3>Jordan Penelle</h3>
+          <p>American Kingdoms content used as placeholder and example. Introduce the people who bring your world to life.</p>
+        </div>
+      </article>
+
+      <article class="member">
+        <div class="photo"><img src="examples/american-kingdoms/assets/team/marcus.jpg" alt="American Kingdoms example: Marcus Jorgensen" loading="lazy"></div>
+        <div class="m-body">
+          <span class="m-role">Director</span>
+          <h3>Marcus Jorgensen</h3>
+          <p>American Kingdoms content used as placeholder and example. Introduce the people who bring your world to life.</p>
+        </div>
+      </article>
+
+      <article class="member">
+        <div class="photo"><img src="examples/american-kingdoms/assets/team/nicholas.jpg" alt="American Kingdoms example: Nicholas Gritsenko" loading="lazy"></div>
+        <div class="m-body">
+          <span class="m-role">Filmmaker</span>
+          <h3>Nicholas Gritsenko</h3>
+          <p>American Kingdoms content used as placeholder and example. Introduce the people who bring your world to life.</p>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section class="explore sec-pad" id="explore">
+  <div class="wrap">
+    <div class="section-head reveal"><h2>Discover more American Kingdoms:</h2></div>
+    <div class="explore-grid">
+      <article class="ex-card reveal">
+        <div class="ex-img"><img src="examples/american-kingdoms/assets/editorial/explore-atlas.webp" alt="American Kingdoms example: Interactive alt-history map of the New World in 1377 A.D., focused on the thirteen East Coast colonies coloured by realm" loading="lazy"></div>
+        <div class="ex-body">
+          <h3>Interactive World Map</h3>
+          <p>American Kingdoms content used as placeholder and example. Link to your wiki, development diaries, and community.</p>
+          <a class="btn btn-dark" href="world-map/?map=north-america">Explore the Map</a>
+        </div>
+      </article>
+      <article class="ex-card reveal">
+        <div class="ex-img"><img src="examples/american-kingdoms/assets/editorial/explore-wiki.webp" alt="American Kingdoms example: Crusader and Native knights clash during the Siege of Mount Rushmore" loading="lazy"></div>
+        <div class="ex-body">
+          <h3>American Kingdoms Wiki</h3>
+          <p>American Kingdoms content used as placeholder and example. Link to your wiki, development diaries, and community.</p>
+          <a class="btn btn-dark" href="https://wiki.american-kingdoms.com/" title="Example destination from American Kingdoms; replace for your own project">Visit the American Kingdoms Wiki</a>
+        </div>
+      </article>
+      <article class="ex-card reveal">
+        <div class="ex-img"><img src="examples/american-kingdoms/assets/editorial/explore-youtube.webp" alt="American Kingdoms example: What if the Romans discovered America video artwork" loading="lazy"></div>
+        <div class="ex-body">
+          <h3>Kaiser Cat Cinema on YouTube</h3>
+          <p>American Kingdoms content used as placeholder and example. Link to your wiki, development diaries, and community.</p>
+          <a class="btn btn-dark" href="https://www.youtube.com/kaisercatcinema" title="Example destination from American Kingdoms; replace for your own project">Watch on YouTube</a>
+        </div>
+      </article>
+      <article class="ex-card reveal">
+        <div class="ex-img"><img src="examples/american-kingdoms/assets/editorial/explore-dev-diaries.webp" alt="American Kingdoms example: American Kingdoms development storyboards and concept sketches" loading="lazy"></div>
+        <div class="ex-body">
+          <h3>Dev Diaries</h3>
+          <p>American Kingdoms content used as placeholder and example. Link to your wiki, development diaries, and community.</p>
+          <a class="btn btn-dark" href="https://kaisercatcinema.com/blogs/dev-diaries" title="Example destination from American Kingdoms; replace for your own project">Read the Dev Diaries</a>
+        </div>
+      </article>
+      <article class="ex-card reveal">
+        <div class="ex-img"><img src="examples/american-kingdoms/assets/tavern.jpg" alt="American Kingdoms example: American Kingdoms characters gathered around a tavern table, laughing and playing cards" loading="lazy"></div>
+        <div class="ex-body">
+          <h3>Discord Community</h3>
+          <p>American Kingdoms content used as placeholder and example. Link to your wiki, development diaries, and community.</p>
+          <a class="btn btn-dark" href="https://kaisercatcinema.com/discord" title="Example destination from American Kingdoms; replace for your own project">Join the Discord</a>
+        </div>
+      </article>
+      <article class="ex-card reveal">
+        <div class="ex-img"><img class="ex-photo" src="examples/american-kingdoms/assets/kcc-crew-photo.webp" alt="American Kingdoms example: The Kaiser Cat Collective team gathered in front of a vintage truck" loading="lazy"></div>
+        <div class="ex-body">
+          <h3>State of the Cinema Newsletter</h3>
+          <p>American Kingdoms content used as placeholder and example. Link to your wiki, development diaries, and community.</p>
+          <a class="btn btn-dark" href="https://kaisercatcinema.com/connect" title="Example destination from American Kingdoms; replace for your own project">Join the Newsletter</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="plate connect sec-pad" id="connect">
+  <div class="wrap">
+    <div style="text-align:center;max-width:64ch;margin:0 auto">
+      <div class="section-head" style="margin-inline:auto"><h2>Stay connected</h2></div>
+    </div>
+
+    <figure class="connect-photo">
+      <img src="examples/american-kingdoms/assets/kcc-crew-photo.webp" alt="American Kingdoms example: The Kaiser Cat Collective team gathered in front of a vintage truck" loading="lazy">
+    </figure>
+
+    <div style="text-align:center;max-width:64ch;margin:0 auto">
+      <p class="lead" style="margin-inline:auto">American Kingdoms content used as placeholder and example. Introduce your community and invite readers to stay in touch.</p>
+
+      <div class="newsletter-widget" id="newsletterWidget" style="max-width:26rem;margin:1.8rem auto">
+        <p class="demo-notice">Demo form only. No email is submitted or stored.</p><form class="newsletter-form" id="newsletterForm" novalidate>
+          <div class="newsletter-form-row">
+            <label class="sr-only" for="newsletterEmail">Email address</label>
+            <input type="email" id="newsletterEmail" name="email" placeholder="Your email" autocomplete="email" required>
+            <button type="submit" class="btn btn-primary">Sign Up</button>
+          </div>
+          <input type="text" name="company" class="newsletter-hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <p class="newsletter-error" role="alert" hidden></p>
+        </form>
+      </div>
+
+      <div class="connect-actions" style="justify-content:center">
+        <a class="btn btn-ghost" href="https://kaisercatcinema.com/discord" title="Example destination from American Kingdoms; replace for your own project">Join the Discord</a>
+      </div>
+
+      <p class="inquiry">American Kingdoms content used as placeholder and example. Introduce your community and invite readers to stay in touch.</p>
+    </div>
+
+    <div class="divider" style="margin-top:3rem"><i>✦</i></div>
+
+    <div style="text-align:center;max-width:64ch;margin:2.6rem auto 0">
+      <p class="follow-line">American Kingdoms content used as placeholder and example. Introduce your community and invite readers to stay in touch.</p>
+      <div class="socials" style="justify-content:center">
+        <a href="https://www.youtube.com/kaisercatcinema" title="Example destination from American Kingdoms; replace for your own project"><svg viewbox="0 0 24 24"><path d="M23 7.5a3 3 0 0 0-2.1-2.1C19 5 12 5 12 5s-7 0-8.9.4A3 3 0 0 0 1 7.5 31 31 0 0 0 .6 12 31 31 0 0 0 1 16.5a3 3 0 0 0 2.1 2.1C5 19 12 19 12 19s7 0 8.9-.4a3 3 0 0 0 2.1-2.1A31 31 0 0 0 23.4 12 31 31 0 0 0 23 7.5zM9.75 15.5v-7L15.5 12z"></path></svg>YouTube</a>
+        <a href="https://kaisercatcinema.com/discord" title="Example destination from American Kingdoms; replace for your own project"><svg viewbox="0 0 24 24"><path d="M20 5.3A17 17 0 0 0 15.9 4l-.2.4a13 13 0 0 1 3.6 1.8 15 15 0 0 0-11-.4l-1.5.4A15 15 0 0 0 4 5.3 17 17 0 0 0 1 16.1a16 16 0 0 0 4.9 2.5l.6-1a11 11 0 0 1-1.9-.9l.5-.3a11 11 0 0 0 9.6 0l.5.3a11 11 0 0 1-1.9.9l.6 1a16 16 0 0 0 4.9-2.5A17 17 0 0 0 20 5.3zM8.5 13.9c-.8 0-1.4-.7-1.4-1.6s.6-1.6 1.4-1.6 1.5.7 1.4 1.6c0 .9-.6 1.6-1.4 1.6zm7 0c-.8 0-1.4-.7-1.4-1.6s.6-1.6 1.4-1.6 1.5.7 1.4 1.6c0 .9-.6 1.6-1.4 1.6z"></path></svg>Discord</a>
+        <a href="https://old.reddit.com/r/americankingdoms/top/" title="Example destination from American Kingdoms; replace for your own project"><svg viewbox="0 0 24 24"><path d="M22 12a2.1 2.1 0 0 0-3.5-1.5A10.3 10.3 0 0 0 13 9l1-4.3 3 .7a1.5 1.5 0 1 0 .2-1l-3.6-.8-1.2 5A10.3 10.3 0 0 0 5.5 9 2.1 2.1 0 1 0 3 12.4a4 4 0 0 0 0 .6c0 3.3 3.6 6 8 6s8-2.7 8-6a4 4 0 0 0 0-.6A2.1 2.1 0 0 0 22 12zM8 13.5A1.3 1.3 0 1 1 9.3 12 1.3 1.3 0 0 1 8 13.5zm8 0A1.3 1.3 0 1 1 17.3 12 1.3 1.3 0 0 1 16 13.5zm-1.3 2.8a4.6 4.6 0 0 1-5.4 0 .5.5 0 0 1 .6-.8 3.6 3.6 0 0 0 4.2 0 .5.5 0 1 1 .6.8z"></path></svg>Reddit</a>
+        <a href="https://x.com/kaisercatcinema" title="Example destination from American Kingdoms; replace for your own project"><svg viewbox="0 0 24 24"><path d="M18.9 2H22l-7.1 8.1L23.2 22h-6.6l-5.2-6.8L5.4 22H2.3l7.6-8.7L1.2 2h6.8l4.7 6.2zM17.8 20.1h1.7L7.3 3.8H5.5z"></path></svg>Twitter / X</a>
+        <a href="https://www.instagram.com/kaisercat.cinema" title="Example destination from American Kingdoms; replace for your own project"><svg viewbox="0 0 24 24"><path d="M12 2c2.7 0 3 0 4.1.1 1.1 0 1.7.2 2.1.4.5.2.9.5 1.3.9s.7.8.9 1.3c.2.4.4 1 .4 2.1.1 1.1.1 1.4.1 4.1s0 3-.1 4.1c0 1.1-.2 1.7-.4 2.1-.2.5-.5.9-.9 1.3s-.8.7-1.3.9c-.4.2-1 .4-2.1.4-1.1.1-1.4.1-4.1.1s-3 0-4.1-.1c-1.1 0-1.7-.2-2.1-.4a3.5 3.5 0 0 1-1.3-.9 3.5 3.5 0 0 1-.9-1.3c-.2-.4-.4-1-.4-2.1C2 15 2 14.7 2 12s0-3 .1-4.1c0-1.1.2-1.7.4-2.1.2-.5.5-.9.9-1.3s.8-.7 1.3-.9c.4-.2 1-.4 2.1-.4C7.9 2 8.2 2 12 2zm0 5a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 8.2A3.2 3.2 0 1 1 12 8.8a3.2 3.2 0 0 1 0 6.4zM17.4 5.4a1.2 1.2 0 1 0 0 2.4 1.2 1.2 0 0 0 0-2.4z"></path></svg>Instagram</a>
+        <a href="https://linkedin.com/in/Vincentdn" title="Example destination from American Kingdoms; replace for your own project"><svg viewbox="0 0 24 24"><path d="M4.98 3.5A2.5 2.5 0 1 1 5 8.5a2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM10 9h3.8v1.7h.1c.5-1 1.8-2 3.7-2 4 0 4.7 2.6 4.7 5.9V21h-4v-5.6c0-1.3 0-3-1.8-3s-2.1 1.4-2.1 2.9V21h-4z"></path></svg>LinkedIn</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<footer><button type="button" class="crest-button" id="footerNewsletterTrigger" aria-label="Open newsletter signup">
+    <img class="crest" src="examples/american-kingdoms/assets/eagle-gold.png" alt="">
+  </button>
+  <div class="wrap template-footer"><p>Worldbuilding website template by Vincent De Nil.</p><nav aria-label="Related projects"><a href="https://vincentdenil.com/">Vincent De Nil</a> · <a href="https://dividedstates-project.com/">The Divided States</a> · <a href="https://flagmaker-print.com/">Flagmaker &amp; Print</a> · <a href="https://american-kingdoms.com/">American Kingdoms</a></nav><p><a href="https://github.com/VincentDN/worldbuilding-website-template">Get the template</a> · <a href="LICENSE">MIT code license</a> · <a href="THIRD_PARTY_NOTICES.md">Example content &amp; credits</a></p><p class="demo-notice">American Kingdoms content is used as placeholder and example. Template code is MIT; example artwork, media, and setting content retain their respective rights.</p></div></footer><div class="newsletter-modal" id="newsletterModal" role="dialog" aria-modal="true" aria-labelledby="newsletterTitle" aria-describedby="newsletterDescription" hidden>
+  <button class="newsletter-backdrop" type="button" data-newsletter-close aria-label="Close newsletter invitation"></button>
+  <div class="newsletter-card">
+    <button class="newsletter-close" type="button" data-newsletter-close aria-label="Close newsletter invitation"><span aria-hidden="true">×</span></button>
+    <figure class="newsletter-image">
+      <img src="examples/american-kingdoms/assets/kcc-crew-photo.webp" alt="American Kingdoms example: The Kaiser Cat Collective team in front of a vintage truck">
+    </figure>
+    <div class="newsletter-copy">
+      <h2 id="newsletterTitle">Preview the newsletter invitation</h2><p id="newsletterDescription">American Kingdoms content used as placeholder and example. This signup is a local demo; no email is sent or stored.</p>
+      <div class="newsletter-widget">
+        <p class="demo-notice">Demo form only. No email is submitted or stored.</p><form class="newsletter-form" novalidate>
+          <div class="newsletter-form-row">
+            <label class="sr-only" for="newsletterModalEmail">Email address</label>
+            <input type="email" id="newsletterModalEmail" name="email" placeholder="Your email" autocomplete="email" required>
+            <button type="submit" class="btn btn-primary">Sign Up</button>
+          </div>
+          <input type="text" name="company" class="newsletter-hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <p class="newsletter-error" role="alert" hidden></p>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<dialog class="lightbox" id="lightbox" aria-label="Artwork viewer" aria-describedby="lightbox-caption">
+  <button class="close" type="button" aria-label="Close artwork viewer" autofocus>×</button>
+  <button class="lightbox-prev" type="button" aria-label="Previous image">‹</button>
+  <figure><img alt=""><figcaption id="lightbox-caption" aria-live="polite"></figcaption></figure>
+  <button class="lightbox-next" type="button" aria-label="Next image">›</button>
+</dialog>
+
 </body>
 </html>

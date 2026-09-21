@@ -1,0 +1,1 @@
+{"type":"FeatureCollection","features":[{"type":"Feature","properties":{"name":"Rhine"},"geometry":{"type":"LineString","coordinates":[[743,540],[736,583],[727,623],[704,660],[672,684]]}},{"type":"Feature","properties":{"name":"Danube"},"geometry":{"type":"LineString","coordinates":[[799,541],[876,558],[949,547],[1036,488],[1135,450],[1216,466]]}}]}
