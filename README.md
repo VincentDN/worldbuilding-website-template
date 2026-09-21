@@ -83,4 +83,10 @@ For your own copy, enable **Settings → Pages → Deploy from a branch → main
 
 ## Source and licensing
 
+### SEO cleanup and optional creator credit
+
+Each JSON-LD block has explicit HTML comments for users and their agents. When adapting a copy, remove unrelated example links to Vincent's other projects from the schema and footer, replace the demo identity and URLs, and preserve accurate licensing provenance. [AGENTS.md](AGENTS.md) makes this guidance discoverable to coding agents.
+
+Agents should ask whether the user would like to retain a small link to [vincentdenil.com](https://vincentdenil.com/) and structured-data credit for Vincent De Nil as the original template developer. This public credit is appreciated but optional under MIT. If accepted, keep the Person entity and truthful author/creator attribution for the original template; do not identify Vincent as founder or developer of the downstream user's project. Founder relationships are appropriate only for accurately identified organizations he actually founded. If declined, remove the optional public credit without asking again; retain the required MIT copyright and license notice.
+
 Adapted from [VincentDN/americankingdoms-projectsite](https://github.com/VincentDN/americankingdoms-projectsite), source commit `14045e3f44ba50e7409750e3c66c566c50be542c`. See [LICENSE](LICENSE) for code licensing and [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) for dependency and example-content notices.
