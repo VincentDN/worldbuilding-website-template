@@ -4,6 +4,8 @@ A static, one-page home for a fictional world, adapted from [American Kingdoms](
 
 **MIT licensed. No build step, account, API key, or package installation required.** All runtime assets are included locally, including Leaflet and the map's geography. The default page makes no requests to third-party services.
 
+[View the live demo](https://vincentdn.github.io/worldbuilding-website-template/)
+
 ## Start locally
 
 1. Use this repository as a template, fork it, or download a ZIP.
@@ -64,7 +66,9 @@ For a completely invented geography, replace `data/land.geojson` with your own g
 
 Upload the repository contents to any static host; the publish directory is the repository root and there is no build command. All local asset and data URLs are relative, so the template also works in a subdirectory.
 
-For GitHub Pages: in **Settings → Pages**, choose **Deploy from a branch**, select `main`, and select `/ (root)`. The expected project URL is `https://YOUR-USERNAME.github.io/YOUR-REPOSITORY/`. Hosting is not enabled by this repository's files; choose a host when you are ready.
+This repository's demo is published with GitHub Pages from `main` at `/ (root)`. Updates pushed to `main` deploy automatically. The `.nojekyll` file tells Pages to serve the static files directly.
+
+For your own copy: in **Settings → Pages**, choose **Deploy from a branch**, select `main`, and select `/ (root)`. The expected project URL is `https://YOUR-USERNAME.github.io/YOUR-REPOSITORY/`. Enable Pages separately for each new repository; hosting settings are not copied with the template.
 
 Before sharing, replace the placeholder content, check your links, set the page description, and add your own canonical and social-preview metadata once your public domain is known.
 
