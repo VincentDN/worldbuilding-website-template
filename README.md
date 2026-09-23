@@ -1,5 +1,7 @@
 # Worldbuilding website template
 
+Planned development: [Europe 1914 Leaflet atlas roadmap](ROADMAP.md) — geographic historical borders, cities, roads, rivers, Wikipedia-based infoboxes, and Divided States-inspired map presentation.
+
 A static worldbuilding site by Vincent De Nil, based on American Kingdoms. Includes a complete project homepage and a dedicated Leaflet atlas with two illustrative settings and a blank starter.
 
 [Live demo](https://vincentdn.github.io/worldbuilding-website-template/) · [Europe 1936](https://vincentdn.github.io/worldbuilding-website-template/world-map/?map=europe) · [North America 1477](https://vincentdn.github.io/worldbuilding-website-template/world-map/?map=north-america)
